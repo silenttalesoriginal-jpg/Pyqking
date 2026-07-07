@@ -73,6 +73,93 @@
    "verified": true
   },
   {
+  "year": "2025",
+  "marks": 5,
+  "type": "Extract Based",
+  "extract": "Not a leaf remained on the trees. The corn was totally destroyed. The flowers were gone from the plants. Lencho's soul was filled with sadness. When the storm had passed, he stood in the middle of the field and said to his sons, 'A plague of locusts would have left more than this. The hail has left nothing. This year we will have no corn.' 'That night was a sorrowful one. All our work, for nothing.' 'There's no one who can help us.' 'We'll all go hungry this year.'",
+  "subQuestions": [
+    {
+      "no": "(i)",
+      "question": "Why were there no leaves left on the trees?",
+      "options": {
+        "A": "The locusts ate them up.",
+        "B": "An earthquake had occurred.",
+        "C": "There was a hailstorm.",
+        "D": "The animals grazed on them."
+      },
+      "correctOption": "C",
+      "answer": "There was a hailstorm."
+    },
+    {
+      "no": "(ii)",
+      "question": "Fill in the blank: Lencho felt (jubilant/devastated) when he saw his destroyed cornfields.",
+      "answer": "devastated"
+    },
+    {
+      "no": "(iii)",
+      "question": "When Lencho says, 'All our work, for nothing,' what does he refer to? Explain in about 40 words.",
+      "answer": "Lencho refers to the hard work that he and his family had put into cultivating the crop throughout the year. The hailstorm destroyed everything within a few minutes, leaving them without food or income. Their months of labour had gone completely to waste."
+    }
+   ],
+   "source": "2025 PYQ",
+   "verified": true
+ },
+ {
+   "year": "2025",
+   "marks": 1,
+   "type": "Short Answer",
+   "question": "Why would Lencho have preferred a plague of locusts to a hailstorm?",
+   "answer": "Lencho believed that a plague of locusts would have destroyed only part of the crop, leaving at least something behind. The hailstorm, however, destroyed every plant and left nothing for the family.",
+   "source": "2025 PYQ",
+   "verified": true
+ },
+ {
+   "year": "2025",
+   "marks": 6,
+   "type": "Long Answer",
+   "question": "Analyse and evaluate the role of faith in 'A Letter to God' and 'The Sermon at Benares'.",
+   "answer": "In 'A Letter to God', faith is the central theme. Lencho's complete trust in God gives him hope after his crops are destroyed. His faith inspires the postmaster and his colleagues to help him by collecting money. In 'The Sermon at Benares', Buddha teaches Kisa Gotami to accept the reality of death through wisdom and understanding. Her faith gradually shifts from blind grief to spiritual truth. While Lencho's faith is personal and based on divine help, Kisa Gotami's faith develops through knowledge and acceptance. Both stories show that faith provides strength during suffering and helps people overcome difficult situations.",
+   "source": "2025 PYQ",
+   "verified": true
+ },
+ {
+   "year": "2025",
+   "marks": 6,
+   "type": "Long Answer",
+   "question": "Analyse the similarities and differences between the young seagull from 'Two Stories about Flying' and Lencho from 'A Letter to God', and explain the role faith plays in adverse situations.",
+   "answer": "Both the young seagull and Lencho face difficult situations and overcome them through faith. The young seagull gains confidence by trusting his instincts and responding to his family's encouragement. Lencho, on the other hand, places complete faith in God after losing his crops and believes divine help will save his family. The difference lies in the object of their faith. The seagull develops self-confidence, whereas Lencho depends on God. In both stories, faith becomes a source of courage, hope and strength, helping them face hardship with determination.",
+   "source": "2025 PYQ",
+   "verified": true
+ },
+ {
+   "year": "2025",
+   "marks": 3,
+   "type": "Short Answer",
+   "question": "What were the problems that made Lencho write a letter to God?",
+   "answer": "A violent hailstorm destroyed Lencho's entire corn crop, leaving his family without food or money. Since he believed only God could help him, he wrote a letter requesting one hundred pesos to survive and sow his fields again.",
+   "source": "2025 PYQ",
+   "verified": true
+ },
+ {
+   "year": "2025",
+   "marks": 3,
+   "type": "Short Answer",
+   "question": "Why did Lencho not trust the post office employees?",
+   "answer": "Lencho had asked God for one hundred pesos but received only seventy. Since he believed God could never make a mistake, he assumed the post office employees had stolen the remaining thirty pesos and called them 'a bunch of crooks.'",
+   "source": "2025 PYQ",
+   "verified": true
+ },
+ {
+   "year": "2025",
+   "marks": 3,
+   "type": "Short Answer",
+   "question": "Faith is like a ray of hope in a distressful situation. Discuss 'A Letter to God' with reference to Lencho's unflinching faith in God.",
+   "answer": "Lencho's unwavering faith in God became his greatest source of hope after the hailstorm destroyed his crops. Instead of giving up, he believed that God would help him. His faith gave him the courage to seek help and face the difficult situation with confidence.",
+   "source": "2025 PYQ",
+   "verified": true
+ },
+  {
+
     "year": "2025",
     "marks": 3,
     "type": "Short Answer",
