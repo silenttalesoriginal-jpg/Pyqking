@@ -136,9 +136,7 @@ function renderQuestions() {
   const search = searchInput.value.toLowerCase();
 
   const filtered = currentQuestions.filter(q =>
-    q.question.toLowerCase().includes(search) ||
-    q.answer.toLowerCase().includes(search) ||
-    String(q.year).includes(search)
+    JSON.stringify(q).toLowerCase().includes(search)
   );
 
   const grouped = {};
@@ -156,16 +154,53 @@ function renderQuestions() {
     grouped[year].forEach((q, index) => {
       const id = `ans-${year}-${index}`;
 
-      questionsArea.innerHTML += `
-        <div class="question-card">
-          <div class="meta">Class 10 • English • First Flight • ${q.marks} Marks • Source: ${q.source}</div>
-          <div class="question"><b>Q.</b> ${q.question}</div>
-          <button class="view" onclick="toggleAnswer('${id}', this)">👁 View Answer</button>
-          <div class="answer" id="${id}">
-            <b>Answer:</b><br>${q.answer}
+      if (q.type === "Extract Based") {
+        questionsArea.innerHTML += `
+          <div class="question-card">
+            <div class="meta">${q.type} • ${q.marks} Marks • Source: ${q.source}</div>
+
+            <div class="extract-box">
+              <b>Read the extract:</b><br><br>
+              ${q.extract}
+            </div>
+
+            ${q.subQuestions.map((sq, i) => `
+              <div class="sub-question">
+                <div class="question"><b>${sq.no}</b> ${sq.question}</div>
+
+                ${sq.options ? `
+                  <div class="options">
+                    <p>A. ${sq.options.A}</p>
+                    <p>B. ${sq.options.B}</p>
+                    <p>C. ${sq.options.C}</p>
+                    <p>D. ${sq.options.D}</p>
+                  </div>
+                ` : ""}
+
+                <button class="view" onclick="toggleAnswer('${id}-${i}', this)">👁 View Answer</button>
+
+                <div class="answer" id="${id}-${i}">
+                  ${sq.correctOption ? `<b>Correct Option:</b> ${sq.correctOption}<br><br>` : ""}
+                  <b>Answer:</b><br>${sq.answer}
+                </div>
+              </div>
+            `).join("")}
           </div>
-        </div>
-      `;
+        `;
+      } else {
+        questionsArea.innerHTML += `
+          <div class="question-card">
+            <div class="meta">${q.type} • ${q.marks} Marks • Source: ${q.source}</div>
+            <div class="question"><b>Q.</b> ${q.question}</div>
+
+            <button class="view" onclick="toggleAnswer('${id}', this)">👁 View Answer</button>
+
+            <div class="answer" id="${id}">
+              <b>Answer:</b><br>${q.answer}
+            </div>
+          </div>
+        `;
+      }
     });
   });
 
