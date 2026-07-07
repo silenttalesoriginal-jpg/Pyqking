@@ -277,6 +277,127 @@
     "verified": true
   },
   {
+    "year": "2021",
+    "marks": 3,
+    "type": "Short Answer",
+    "question": "What is ironic about the post office staff helping Lencho?",
+    "answer": "The irony lies in the fact that the post office employees generously collected money to help Lencho without expecting anything in return. However, instead of thanking them, Lencho believed they had stolen thirty pesos from the amount sent by God and called them 'a bunch of crooks'.",
+    "source": "2021 PYQ",
+    "verified": true
+  },
+  {
+    "year": "2021",
+    "marks": 5,
+    "type": "Extract Based",
+    "extract": "With a satisfied expression, he regarded the field of ripe corn with its flowers, draped in a curtain of rain. But suddenly a strong wind began to blow and along with the rain, very large hailstones began to fall. These truly did resemble new silver coins.",
+    "subQuestions": [
+      {
+        "no": "(i)",
+        "question": "Who is 'he'?",
+       "answer": "Lencho."
+      },
+      {
+        "no": "(ii)",
+        "question": "What satisfied him?",
+        "answer": "He was pleased to see his field of ripe corn receiving rainfall because it promised a rich harvest."
+      },
+      {
+        "no": "(iii)",
+        "question": "What is ironic about 'silver coins'?",
+        "answer": "The hailstones looked like valuable silver coins but instead of bringing wealth, they destroyed the crops completely."
+      },
+      {
+        "no": "(iv)",
+        "question": "How did the 'silver coins' affect the cornfield?",
+        "answer": "The hailstones stripped the leaves and flowers, damaged every plant and completely ruined the cornfield."
+      },
+      {
+        "no": "(v)",
+        "question": "'Draped in a curtain of rain' — Which part of speech is 'draped'?",
+        "options": {
+          "A": "Noun",
+          "B": "Verb",
+          "C": "Past participle used as an adjective",
+          "D": "Adverb"
+        },
+        "correctOption": "C",
+        "answer": "Past participle used as an adjective."
+      }
+    ],
+    "source": "2021 PYQ",
+    "verified": true
+  },
+  {
+    "year": "2021",
+    "marks": 5,
+    "type": "Extract Based",
+    "extract": "All through the night, Lencho thought only of his one hope: the help of God, whose eyes, as he had been instructed, see everything, even what is deep in one's conscience. Lencho was an ox of a man, working like an animal in the fields, but still he knew how to write. The following Sunday, at daybreak, he began to write a letter which he himself would carry to town and place in the mail. It was nothing less than a letter to God.",
+    "subQuestions": [
+    {
+      "no": "(i)",
+      "question": "Study the following statements:\n(i) Lencho decided to write a letter to God.\n(ii) All through the night he thought of his only one hope.\nChoose the correct option.",
+      "options": {
+        "A": "(i) is the cause and (ii) is the effect.",
+        "B": "(ii) is the cause of (i).",
+        "C": "(ii) preceded (i).",
+        "D": "Both happened at the same time."
+      },
+      "correctOption": "B",
+      "answer": "(ii) is the cause of (i)."
+    },
+    {
+      "no": "(ii)",
+      "question": "'Lencho was an ox of a man' means:",
+      "options": {
+        "A": "He was very hard-working.",
+        "B": "He owned an ox.",
+        "C": "He ploughed his field with an ox.",
+        "D": "His ox could work like a man."
+      },
+      "correctOption": "A",
+      "answer": "He was very hard-working."
+    },
+    {
+      "no": "(iii)",
+      "question": "'But still he knew how to write' implies that:",
+      "options": {
+        "A": "Lencho could write as he was a farmer.",
+        "B": "Ordinarily, a farmer did not know how to write.",
+        "C": "All farmers knew how to write.",
+        "D": "A farmer cannot know how to write."
+      },
+      "correctOption": "B",
+      "answer": "Ordinarily, a farmer did not know how to write."
+    },
+    {
+      "no": "(iv)",
+      "question": "Why did he write the letter on Sunday?",
+      "options": {
+        "A": "Sunday is a holy day for Christians.",
+        "B": "God listens only on Sunday.",
+        "C": "Lencho was busy the rest of the week.",
+        "D": "The post office would open on Monday."
+      },
+      "correctOption": "A",
+      "answer": "Sunday is a holy day for Christians."
+    },
+    {
+      "no": "(v)",
+      "question": "Loss : Gain :: Despair : ____",
+        "options": {
+          "A": "Help",
+          "B": "Hope",
+          "C": "Deep",
+          "D": "Carry"
+        },
+    "correctOption": "B",
+        "answer": "Hope."
+    }
+    ],
+    "source": "2021 Term-I PYQ",
+    "verified": true
+  },
+  {
     "year": "2020",
     "marks": 2,
     "type": "Short Answer",
