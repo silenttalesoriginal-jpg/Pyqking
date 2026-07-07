@@ -1,5 +1,78 @@
 [
   {
+   "year": "2026",
+   "marks": 3,
+   "type": "Short Answer",
+   "question": "Lencho's last letter to God depicts astute faith on one level and irony on the other. Bring out the element of faith and irony in the situation.",
+   "answer": "Lencho's faith is seen when he writes to God after the hailstorm destroys his crops. He asks for one hundred pesos and never doubts that God will help him. The irony is that the post office employees actually help him, but Lencho calls them 'a bunch of crooks' because he thinks they stole the remaining money.",
+   "source": "2026 PYQ",
+   "verified": true
+ },
+ {
+   "year": "2026",
+   "marks": 6,
+   "type": "Long Answer",
+   "question": "How do Lencho in 'A Letter to God' and Kisa Gotami in 'The Sermon at Benares' respond to their experiences of suffering and loss? How did they overcome their respective losses?",
+   "answer": "Lencho and Kisa Gotami both suffer serious losses, but they respond differently. Lencho is a poor farmer whose crop is destroyed by a hailstorm. Instead of losing hope, he writes a letter to God asking for one hundred pesos. His strong faith helps him face his loss. Kisa Gotami loses her only son and refuses to accept his death. She goes to Buddha for help. Buddha asks her to bring mustard seeds from a house where no one has died. Through this, she understands that death is common to all. Lencho overcomes loss through faith, while Kisa Gotami overcomes it through wisdom and acceptance.",
+   "source": "2026 PYQ",
+   "verified": true
+ },
+ {
+   "year": "2026",
+   "marks": 5,
+   "type": "Extract Based",
+   "extract": "The postmaster - a fat, amiable fellow - also broke out laughing, but almost immediately he turned serious and, tapping the letter to his desk, commented, \"What faith! I wish I had the faith of the man who wrote this letter. Starting up a correspondence with God!\" So, in order not to shake the writer's faith in God, the postmaster came up with an idea: answer the letter.",
+   "subQuestions": [
+     {
+       "no": "(i)",
+       "question": "Justify the following statement: What faith! I wish I had the faith of the man who wrote this letter.",
+       "answer": "The postmaster was amazed by Lencho's firm faith in God. Even after losing his crop, Lencho believed that God would surely help him. This deep and simple faith impressed the postmaster."
+     },
+     {
+       "no": "(ii)",
+       "question": "Fill in the blank: The postmaster turned serious on seeing the letter addressed to God because he realized that the writer had (immense/limited) faith in God.",
+       "answer": "immense"
+     },
+     {
+       "no": "(iii)",
+       "question": "Examine the portrayal of the postmaster in the given extract.",
+       "answer": "The postmaster is shown as friendly and cheerful because he first laughs at the unusual letter. However, he is also kind and sensitive. When he understands Lencho's faith, he decides to help him instead of making fun of him."
+     },
+     {
+       "no": "(iv)",
+       "question": "Why did the postmaster initially laugh on seeing the letter?",
+       "options": {
+         "A": "It was a blank sheet of paper.",
+         "B": "He lacked faith in God.",
+         "C": "He had received such letters earlier.",
+         "D": "He had never known such an address."
+       },
+       "correctOption": "D",
+       "answer": "He had never known such an address."
+     }
+   ],
+   "source": "2026 PYQ",
+   "verified": true
+ },
+ {
+   "year": "2026",
+   "marks": 6,
+   "type": "Long Answer",
+   "question": "Compare the two stories, 'A Letter to God' and 'The Black Aeroplane'. Examine how both these stories illustrate that help can come in unexpected forms.",
+   "answer": "Both 'A Letter to God' and 'The Black Aeroplane' show that help can come in surprising ways. In 'A Letter to God', Lencho loses his crop in a hailstorm and writes to God for money. The help actually comes from the postmaster and his employees, but Lencho believes it has come from God. In 'The Black Aeroplane', the pilot is lost in a storm when a mysterious black aeroplane guides him safely. Later, he learns that no such plane was seen on radar. In both stories, the characters receive help during a crisis, but the source of help remains unexpected or mysterious.",
+   "source": "2026 PYQ",
+   "verified": true
+ },
+ {
+   "year": "2026",
+   "marks": 6,
+   "type": "Long Answer",
+   "question": "How does Lencho's faith in God, as shown in 'A Letter to God', contrast with the approach of Kisa Gotami in 'The Sermon at Benares'? Support your answer with details from the two texts.",
+   "answer": "Lencho and Kisa Gotami both suffer loss, but their approaches are different. Lencho loses his crop in a hailstorm and immediately depends on God for help. He writes a letter asking for money and trusts divine help completely. His faith is simple, absolute and unquestioning. Kisa Gotami loses her only son and first refuses to accept his death. She goes from place to place looking for a cure. Buddha teaches her through experience that death is universal. Lencho depends on faith, while Kisa Gotami learns through effort, experience and acceptance. Thus, the two texts show different ways of dealing with suffering.",
+   "source": "2026 PYQ",
+   "verified": true
+  },
+  {
     "year": "2025",
     "marks": 3,
     "type": "Short Answer",
