@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PyqKing</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="particles"></canvas>
+  <div class="mouse-glow"></div>
+
+  <main class="app">
+    <button id="backBtn" class="back-btn hidden">← Back</button>
+
+    <section class="hero">
+      <div class="badge">CBSE PYQ PLATFORM</div>
+      <h1>👑 PyqKing</h1>
+      <p id="pageSubtitle">Choose your class</p>
+    </section>
+
+    <section id="cardsArea" class="cards-area"></section>
+
+    <section id="pyqArea" class="pyq-area hidden">
+      <input id="searchInput" class="search" placeholder="Search PYQ..." />
+      <div id="questionsArea"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
