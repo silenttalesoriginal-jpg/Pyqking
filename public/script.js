@@ -8,6 +8,7 @@ const mouseGlow = document.querySelector(".mouse-glow");
 
 let pageStack = [];
 let currentQuestions = [];
+let currentTitlePrefix = "📅 Previous Year Questions";
 
 document.addEventListener("mousemove", (e) => {
   mouseGlow.style.left = e.clientX + "px";
@@ -54,7 +55,7 @@ const pages = {
   firstFlight: {
     subtitle: "First Flight Chapters",
     cards: [
-      { title: "Ch-1 A Letter to God", desc: "Previous Year Questions", action: "letterToGod" },
+      { title: "Ch-1 A Letter to God", desc: "PYQs, Oral Comprehension & Exercises", action: "letterToGodMenu" },
       { title: "Ch-2 Nelson Mandela", desc: "Coming Soon", soon: true },
       { title: "Ch-3 Two Stories About Flying", desc: "Coming Soon", soon: true },
       { title: "Ch-4 From the Diary of Anne Frank", desc: "Coming Soon", soon: true },
@@ -63,6 +64,15 @@ const pages = {
       { title: "Ch-7 Madam Rides the Bus", desc: "Coming Soon", soon: true },
       { title: "Ch-8 The Sermon at Benares", desc: "Coming Soon", soon: true },
       { title: "Ch-9 The Proposal", desc: "Coming Soon", soon: true }
+    ]
+  },
+
+  letterToGodMenu: {
+    subtitle: "A Letter to God",
+    cards: [
+      { title: "📅 PYQs", desc: "Previous Year Questions", action: "letterToGod" },
+      { title: "🎤 Oral Comprehension", desc: "NCERT Oral Questions", action: "oralComprehension" },
+      { title: "📝 Exercise Questions", desc: "Coming Soon", soon: true }
     ]
   }
 };
@@ -73,10 +83,18 @@ function renderPage(pageName, push = true) {
   pyqArea.classList.add("hidden");
   cardsArea.classList.remove("hidden");
   cardsArea.innerHTML = "";
+  questionsArea.innerHTML = "";
+  searchInput.value = "";
 
   const page = pages[pageName];
-  pageSubtitle.textContent = page.subtitle;
 
+  if (!page) {
+    pageSubtitle.textContent = "Page not found";
+    cardsArea.innerHTML = `<p>Page not found.</p>`;
+    return;
+  }
+
+  pageSubtitle.textContent = page.subtitle;
   backBtn.classList.toggle("hidden", pageStack.length <= 1);
 
   page.cards.forEach(card => {
@@ -95,6 +113,8 @@ function renderPage(pageName, push = true) {
       div.onclick = () => {
         if (card.action === "letterToGod") {
           openLetterToGod();
+        } else if (card.action === "oralComprehension") {
+          openOralComprehension();
         } else {
           renderPage(card.action);
         }
@@ -121,18 +141,54 @@ async function openLetterToGod() {
   backBtn.classList.remove("hidden");
 
   pageSubtitle.textContent = "A Letter to God - Previous Year Questions";
+  searchInput.placeholder = "Search PYQs...";
+  searchInput.value = "";
+  currentTitlePrefix = "📅 Previous Year Questions";
 
   try {
     const res = await fetch("/data/class10/english/first-flight/a-letter-to-god.json");
     currentQuestions = await res.json();
-    renderQuestions();
+    renderQuestions(currentTitlePrefix);
   } catch (error) {
     questionsArea.innerHTML = "<p>Failed to load questions.</p>";
     console.error(error);
   }
 }
 
-function renderQuestions() {
+async function openOralComprehension() {
+  pageStack.push("oralComprehension");
+
+  cardsArea.classList.add("hidden");
+  pyqArea.classList.remove("hidden");
+  backBtn.classList.remove("hidden");
+
+  pageSubtitle.textContent = "A Letter to God - Oral Comprehension";
+  searchInput.placeholder = "Search oral comprehension...";
+  searchInput.value = "";
+  currentTitlePrefix = "🎤 Oral Comprehension";
+
+  try {
+    const res = await fetch("/data/class10/english/first-flight/a-letter-to-god-oral.json");
+    const data = await res.json();
+
+    currentQuestions = data.map(item => ({
+      year: item.page,
+      marks: "NCERT",
+      type: "Oral Comprehension",
+      question: item.question,
+      answer: item.answer,
+      source: item.page,
+      verified: true
+    }));
+
+    renderQuestions(currentTitlePrefix);
+  } catch (error) {
+    questionsArea.innerHTML = "<p>Failed to load oral comprehension.</p>";
+    console.error(error);
+  }
+}
+
+function renderQuestions(titlePrefix = currentTitlePrefix) {
   const search = searchInput.value.toLowerCase();
 
   const filtered = currentQuestions.filter(q =>
@@ -148,61 +204,74 @@ function renderQuestions() {
 
   questionsArea.innerHTML = "";
 
-  Object.keys(grouped).sort((a, b) => b - a).forEach(year => {
-    questionsArea.innerHTML += `<h2 class="year-title">📅 Previous Year Questions [${year}]</h2>`;
+  Object.keys(grouped)
+    .sort((a, b) => {
+      const numA = Number(a);
+      const numB = Number(b);
 
-    grouped[year].forEach((q, index) => {
-      const id = `ans-${year}-${index}`;
+      if (!isNaN(numA) && !isNaN(numB)) return numB - numA;
 
-      if (q.type === "Extract Based") {
-        questionsArea.innerHTML += `
-          <div class="question-card">
-            <div class="meta">${q.type} • ${q.marks} Marks • Source: ${q.source}</div>
+      return String(a).localeCompare(String(b), undefined, {
+        numeric: true,
+        sensitivity: "base"
+      });
+    })
+    .forEach(year => {
+      questionsArea.innerHTML += `<h2 class="year-title">${titlePrefix} [${year}]</h2>`;
 
-            <div class="extract-box">
-              <b>Read the extract:</b><br><br>
-              ${q.extract}
-            </div>
+      grouped[year].forEach((q, index) => {
+        const cleanYear = String(year).replace(/\s/g, "-").replace(/[^\w-]/g, "");
+        const id = `ans-${cleanYear}-${index}`;
 
-            ${q.subQuestions.map((sq, i) => `
-              <div class="sub-question">
-                <div class="question"><b>${sq.no}</b> ${sq.question}</div>
+        if (q.type === "Extract Based") {
+          questionsArea.innerHTML += `
+            <div class="question-card">
+              <div class="meta">${q.type} • ${q.marks} Marks • Source: ${q.source}</div>
 
-                ${sq.options ? `
-                  <div class="options">
-                    <p>A. ${sq.options.A}</p>
-                    <p>B. ${sq.options.B}</p>
-                    <p>C. ${sq.options.C}</p>
-                    <p>D. ${sq.options.D}</p>
-                  </div>
-                ` : ""}
-
-                <button class="view" onclick="toggleAnswer('${id}-${i}', this)">👁 View Answer</button>
-
-                <div class="answer" id="${id}-${i}">
-                  ${sq.correctOption ? `<b>Correct Option:</b> ${sq.correctOption}<br><br>` : ""}
-                  <b>Answer:</b><br>${sq.answer}
-                </div>
+              <div class="extract-box">
+                <b>Read the extract:</b><br><br>
+                ${q.extract}
               </div>
-            `).join("")}
-          </div>
-        `;
-      } else {
-        questionsArea.innerHTML += `
-          <div class="question-card">
-            <div class="meta">${q.type} • ${q.marks} Marks • Source: ${q.source}</div>
-            <div class="question"><b>Q.</b> ${q.question}</div>
 
-            <button class="view" onclick="toggleAnswer('${id}', this)">👁 View Answer</button>
+              ${q.subQuestions.map((sq, i) => `
+                <div class="sub-question">
+                  <div class="question"><b>${sq.no}</b> ${sq.question}</div>
 
-            <div class="answer" id="${id}">
-              <b>Answer:</b><br>${q.answer}
+                  ${sq.options ? `
+                    <div class="options">
+                      <p>A. ${sq.options.A}</p>
+                      <p>B. ${sq.options.B}</p>
+                      <p>C. ${sq.options.C}</p>
+                      <p>D. ${sq.options.D}</p>
+                    </div>
+                  ` : ""}
+
+                  <button class="view" onclick="toggleAnswer('${id}-${i}', this)">👁 View Answer</button>
+
+                  <div class="answer" id="${id}-${i}">
+                    ${sq.correctOption ? `<b>Correct Option:</b> ${sq.correctOption}<br><br>` : ""}
+                    <b>Answer:</b><br>${sq.answer}
+                  </div>
+                </div>
+              `).join("")}
             </div>
-          </div>
-        `;
-      }
+          `;
+        } else {
+          questionsArea.innerHTML += `
+            <div class="question-card">
+              <div class="meta">${q.type} • ${q.marks} Marks • Source: ${q.source}</div>
+              <div class="question"><b>Q.</b> ${q.question}</div>
+
+              <button class="view" onclick="toggleAnswer('${id}', this)">👁 View Answer</button>
+
+              <div class="answer" id="${id}">
+                <b>Answer:</b><br>${q.answer}
+              </div>
+            </div>
+          `;
+        }
+      });
     });
-  });
 
   if (filtered.length === 0) {
     questionsArea.innerHTML = "<p>No question found.</p>";
@@ -211,11 +280,14 @@ function renderQuestions() {
 
 function toggleAnswer(id, btn) {
   const ans = document.getElementById(id);
+
+  if (!ans) return;
+
   ans.classList.toggle("show");
   btn.textContent = ans.classList.contains("show") ? "🙈 Hide Answer" : "👁 View Answer";
 }
 
-searchInput.addEventListener("input", renderQuestions);
+searchInput.addEventListener("input", () => renderQuestions(currentTitlePrefix));
 
 renderPage("home", true);
 
@@ -228,8 +300,8 @@ function resizeCanvas() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 }
-resizeCanvas();
 
+resizeCanvas();
 window.addEventListener("resize", resizeCanvas);
 
 for (let i = 0; i < 90; i++) {
