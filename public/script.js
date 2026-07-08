@@ -67,14 +67,14 @@ const pages = {
     ]
   },
 
-  letterToGodMenu: {
-    subtitle: "A Letter to God",
-    cards: [
-      { title: "📅 PYQs", desc: "Previous Year Questions", action: "letterToGod" },
-      { title: "🎤 Oral Comprehension", desc: "NCERT Oral Questions", action: "oralComprehension" },
-      { title: "📝 Exercise Questions", desc: "Coming Soon", soon: true }
-    ]
-  }
+   letterToGodMenu: {
+   subtitle: "A Letter to God",
+   cards: [
+     { title: "📅 PYQs", desc: "Previous Year Questions", action: "letterToGod" },
+     { title: "🎤 Oral Comprehension", desc: "NCERT Oral Questions", action: "oralComprehension" },
+     { title: "📝 Exercise Questions", desc: "NCERT Back Exercise", action: "exerciseQuestions" }
+   ]
+ }
 };
 
 function renderPage(pageName, push = true) {
@@ -109,16 +109,14 @@ function renderPage(pageName, push = true) {
       </div>
     `;
 
-    if (!card.soon) {
-      div.onclick = () => {
-        if (card.action === "letterToGod") {
-          openLetterToGod();
-        } else if (card.action === "oralComprehension") {
-          openOralComprehension();
-        } else {
-          renderPage(card.action);
-        }
-      };
+    if (card.action === "letterToGod") {
+        openLetterToGod();
+    } else if (card.action === "oralComprehension") {
+        openOralComprehension();
+    } else if (card.action === "exerciseQuestions") {
+        openExerciseQuestions();
+    } else {
+        renderPage(card.action);
     }
 
     cardsArea.appendChild(div);
@@ -185,6 +183,39 @@ async function openOralComprehension() {
   } catch (error) {
     questionsArea.innerHTML = "<p>Failed to load oral comprehension.</p>";
     console.error(error);
+  }
+}
+async function openExerciseQuestions() {
+  pageStack.push("exerciseQuestions");
+
+  cardsArea.classList.add("hidden");
+  pyqArea.classList.remove("hidden");
+  backBtn.classList.remove("hidden");
+
+  pageSubtitle.textContent = "A Letter to God - Exercise Questions";
+  searchInput.placeholder = "Search exercise questions...";
+  searchInput.value = "";
+
+  currentTitlePrefix = "📝 Exercise Questions";
+
+  try {
+    const res = await fetch("/data/class10/english/first-flight/a-letter-to-god-exercise.json");
+    const data = await res.json();
+
+    currentQuestions = data.map(item => ({
+      year: item.section,
+      marks: "NCERT",
+      type: "Exercise",
+      question: item.question,
+      answer: item.answer,
+      source: "NCERT",
+      verified: true
+    }));
+
+    renderQuestions(currentTitlePrefix);
+  } catch (err) {
+    questionsArea.innerHTML = "<p>Failed to load exercise questions.</p>";
+    console.error(err);
   }
 }
 
