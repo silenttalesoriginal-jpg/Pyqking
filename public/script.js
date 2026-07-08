@@ -11,6 +11,7 @@ let currentQuestions = [];
 let currentTitlePrefix = "📅 Previous Year Questions";
 
 document.addEventListener("mousemove", (e) => {
+  if (!mouseGlow) return;
   mouseGlow.style.left = e.clientX + "px";
   mouseGlow.style.top = e.clientY + "px";
 });
@@ -67,14 +68,14 @@ const pages = {
     ]
   },
 
-   letterToGodMenu: {
-   subtitle: "A Letter to God",
-   cards: [
-     { title: "📅 PYQs", desc: "Previous Year Questions", action: "letterToGod" },
-     { title: "🎤 Oral Comprehension", desc: "NCERT Oral Questions", action: "oralComprehension" },
-     { title: "📝 Exercise Questions", desc: "NCERT Back Exercise", action: "exerciseQuestions" }
-   ]
- }
+  letterToGodMenu: {
+    subtitle: "A Letter to God",
+    cards: [
+      { title: "📅 PYQs", desc: "Previous Year Questions", action: "letterToGod" },
+      { title: "🎤 Oral Comprehension", desc: "NCERT Oral Questions", action: "oralComprehension" },
+      { title: "📝 Exercise Questions", desc: "NCERT Back Exercise", action: "exerciseQuestions" }
+    ]
+  }
 };
 
 function renderPage(pageName, push = true) {
@@ -82,6 +83,7 @@ function renderPage(pageName, push = true) {
 
   pyqArea.classList.add("hidden");
   cardsArea.classList.remove("hidden");
+
   cardsArea.innerHTML = "";
   questionsArea.innerHTML = "";
   searchInput.value = "";
@@ -90,7 +92,7 @@ function renderPage(pageName, push = true) {
 
   if (!page) {
     pageSubtitle.textContent = "Page not found";
-    cardsArea.innerHTML = `<p>Page not found.</p>`;
+    cardsArea.innerHTML = `<p style="text-align:center;">Page not found.</p>`;
     return;
   }
 
@@ -109,14 +111,18 @@ function renderPage(pageName, push = true) {
       </div>
     `;
 
-    if (card.action === "letterToGod") {
-        openLetterToGod();
-    } else if (card.action === "oralComprehension") {
-        openOralComprehension();
-    } else if (card.action === "exerciseQuestions") {
-        openExerciseQuestions();
-    } else {
-        renderPage(card.action);
+    if (!card.soon) {
+      div.onclick = () => {
+        if (card.action === "letterToGod") {
+          openLetterToGod();
+        } else if (card.action === "oralComprehension") {
+          openOralComprehension();
+        } else if (card.action === "exerciseQuestions") {
+          openExerciseQuestions();
+        } else {
+          renderPage(card.action);
+        }
+      };
     }
 
     cardsArea.appendChild(div);
@@ -127,7 +133,7 @@ backBtn.onclick = () => {
   if (pageStack.length > 1) {
     pageStack.pop();
     const previous = pageStack.pop();
-    renderPage(previous);
+    renderPage(previous, false);
   }
 };
 
@@ -170,12 +176,12 @@ async function openOralComprehension() {
     const data = await res.json();
 
     currentQuestions = data.map(item => ({
-      year: item.page,
+      year: item.page || item.section || "Oral Comprehension",
       marks: "NCERT",
       type: "Oral Comprehension",
       question: item.question,
       answer: item.answer,
-      source: item.page,
+      source: item.page || "NCERT",
       verified: true
     }));
 
@@ -185,6 +191,7 @@ async function openOralComprehension() {
     console.error(error);
   }
 }
+
 async function openExerciseQuestions() {
   pageStack.push("exerciseQuestions");
 
@@ -195,7 +202,6 @@ async function openExerciseQuestions() {
   pageSubtitle.textContent = "A Letter to God - Exercise Questions";
   searchInput.placeholder = "Search exercise questions...";
   searchInput.value = "";
-
   currentTitlePrefix = "📝 Exercise Questions";
 
   try {
@@ -203,7 +209,7 @@ async function openExerciseQuestions() {
     const data = await res.json();
 
     currentQuestions = data.map(item => ({
-      year: item.section,
+      year: item.section || "Exercise Questions",
       marks: "NCERT",
       type: "Exercise",
       question: item.question,
@@ -213,9 +219,9 @@ async function openExerciseQuestions() {
     }));
 
     renderQuestions(currentTitlePrefix);
-  } catch (err) {
+  } catch (error) {
     questionsArea.innerHTML = "<p>Failed to load exercise questions.</p>";
-    console.error(err);
+    console.error(error);
   }
 }
 
@@ -229,80 +235,81 @@ function renderQuestions(titlePrefix = currentTitlePrefix) {
   const grouped = {};
 
   filtered.forEach(q => {
-    if (!grouped[q.year]) grouped[q.year] = [];
-    grouped[q.year].push(q);
+    const groupName = q.year || "Questions";
+    if (!grouped[groupName]) grouped[groupName] = [];
+    grouped[groupName].push(q);
   });
 
   questionsArea.innerHTML = "";
 
-  Object.keys(grouped)
-    .sort((a, b) => {
-      const numA = Number(a);
-      const numB = Number(b);
+  const groups = Object.keys(grouped).sort((a, b) => {
+    const numA = Number(a);
+    const numB = Number(b);
 
-      if (!isNaN(numA) && !isNaN(numB)) return numB - numA;
+    if (!isNaN(numA) && !isNaN(numB)) return numB - numA;
 
-      return String(a).localeCompare(String(b), undefined, {
-        numeric: true,
-        sensitivity: "base"
-      });
-    })
-    .forEach(year => {
-      questionsArea.innerHTML += `<h2 class="year-title">${titlePrefix} [${year}]</h2>`;
-
-      grouped[year].forEach((q, index) => {
-        const cleanYear = String(year).replace(/\s/g, "-").replace(/[^\w-]/g, "");
-        const id = `ans-${cleanYear}-${index}`;
-
-        if (q.type === "Extract Based") {
-          questionsArea.innerHTML += `
-            <div class="question-card">
-              <div class="meta">${q.type} • ${q.marks} Marks • Source: ${q.source}</div>
-
-              <div class="extract-box">
-                <b>Read the extract:</b><br><br>
-                ${q.extract}
-              </div>
-
-              ${q.subQuestions.map((sq, i) => `
-                <div class="sub-question">
-                  <div class="question"><b>${sq.no}</b> ${sq.question}</div>
-
-                  ${sq.options ? `
-                    <div class="options">
-                      <p>A. ${sq.options.A}</p>
-                      <p>B. ${sq.options.B}</p>
-                      <p>C. ${sq.options.C}</p>
-                      <p>D. ${sq.options.D}</p>
-                    </div>
-                  ` : ""}
-
-                  <button class="view" onclick="toggleAnswer('${id}-${i}', this)">👁 View Answer</button>
-
-                  <div class="answer" id="${id}-${i}">
-                    ${sq.correctOption ? `<b>Correct Option:</b> ${sq.correctOption}<br><br>` : ""}
-                    <b>Answer:</b><br>${sq.answer}
-                  </div>
-                </div>
-              `).join("")}
-            </div>
-          `;
-        } else {
-          questionsArea.innerHTML += `
-            <div class="question-card">
-              <div class="meta">${q.type} • ${q.marks} Marks • Source: ${q.source}</div>
-              <div class="question"><b>Q.</b> ${q.question}</div>
-
-              <button class="view" onclick="toggleAnswer('${id}', this)">👁 View Answer</button>
-
-              <div class="answer" id="${id}">
-                <b>Answer:</b><br>${q.answer}
-              </div>
-            </div>
-          `;
-        }
-      });
+    return String(a).localeCompare(String(b), undefined, {
+      numeric: true,
+      sensitivity: "base"
     });
+  });
+
+  groups.forEach(year => {
+    questionsArea.innerHTML += `<h2 class="year-title">${titlePrefix} [${year}]</h2>`;
+
+    grouped[year].forEach((q, index) => {
+      const cleanYear = String(year).replace(/\s/g, "-").replace(/[^\w-]/g, "");
+      const id = `ans-${cleanYear}-${index}`;
+
+      if (q.type === "Extract Based") {
+        questionsArea.innerHTML += `
+          <div class="question-card">
+            <div class="meta">${q.type} • ${q.marks} Marks • Source: ${q.source}</div>
+
+            <div class="extract-box">
+              <b>Read the extract:</b><br><br>
+              ${q.extract}
+            </div>
+
+            ${q.subQuestions.map((sq, i) => `
+              <div class="sub-question">
+                <div class="question"><b>${sq.no}</b> ${sq.question}</div>
+
+                ${sq.options ? `
+                  <div class="options">
+                    <p>A. ${sq.options.A}</p>
+                    <p>B. ${sq.options.B}</p>
+                    <p>C. ${sq.options.C}</p>
+                    <p>D. ${sq.options.D}</p>
+                  </div>
+                ` : ""}
+
+                <button class="view" onclick="toggleAnswer('${id}-${i}', this)">👁 View Answer</button>
+
+                <div class="answer" id="${id}-${i}">
+                  ${sq.correctOption ? `<b>Correct Option:</b> ${sq.correctOption}<br><br>` : ""}
+                  <b>Answer:</b><br>${sq.answer}
+                </div>
+              </div>
+            `).join("")}
+          </div>
+        `;
+      } else {
+        questionsArea.innerHTML += `
+          <div class="question-card">
+            <div class="meta">${q.type} • ${q.marks} Marks • Source: ${q.source}</div>
+            <div class="question"><b>Q.</b> ${q.question}</div>
+
+            <button class="view" onclick="toggleAnswer('${id}', this)">👁 View Answer</button>
+
+            <div class="answer" id="${id}">
+              <b>Answer:</b><br>${q.answer}
+            </div>
+          </div>
+        `;
+      }
+    });
+  });
 
   if (filtered.length === 0) {
     questionsArea.innerHTML = "<p>No question found.</p>";
