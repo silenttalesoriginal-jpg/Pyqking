@@ -1,5 +1,133 @@
 [
   {
+    "year": "2026",
+    "marks": 5,
+    "type": "Extract Based",
+    "extract": "We have, at last, achieved our political emancipation. We pledge ourselves to liberate all our people from the continuing bondage of poverty, deprivation, suffering, gender and other discrimination. Never, never, and never again shall it be that this beautiful land will again experience the oppression of one by another. The sun shall never set on so glorious a human achievement.",
+    "subQuestions": [
+      {
+        "no": "(i)",
+        "question": "What is the tone Nelson Mandela is UNLIKELY to have used in his speech?",
+        "options": {
+          "A": "inspirational",
+          "B": "assertive",
+          "C": "conflicted",
+          "D": "direct"
+        },
+        "correctOption": "C",
+        "answer": "Conflicted. Mandela's tone is inspirational, assertive and direct. He is clear and firm about his vision of freedom and equality, so a conflicted tone would not suit this speech."
+      }
+    ],
+    "source": "2026 PYQ",
+    "verified": true
+  },
+  {
+    "year": "2026",
+    "marks": 5,
+    "type": "Extract Based",
+    "extract": "Out of the experience of an extraordinary human disaster that lasted too long, must be born a society of which all humanity will be proud. We, who were outlaws not so long ago, have today been given the rare privilege to be host to the nations of the world on our own soil. We thank all of our distinguished international guests for having come to take possession with the people of our country of what is, after all, a common victory for justice, for peace, for human dignity.",
+    "subQuestions": [
+      {
+        "no": "(i)",
+        "question": "Which option justifies Mandela's statement, 'We, who were outlaws...'?",
+        "options": {
+          "A": "The international leaders who came to attend the ceremony",
+          "B": "Due to Apartheid, many countries broke diplomatic relations with South Africa",
+          "C": "The Commonwealth countries and their people",
+          "D": "The people who fought in the Anglo-Boer War"
+        },
+        "correctOption": "B",
+        "answer": "Due to apartheid, many countries broke diplomatic relations with South Africa. The discriminatory policies made South Africa isolated from the world."
+      },
+      {
+        "no": "(ii)",
+        "question": "Complete the sentence: Mandela thanked all the distinguished international guests because ________.",
+        "answer": "they joined the ceremony and came to be part of the common victory for justice, peace and human dignity."
+      },
+      {
+        "no": "(iii)",
+        "question": "In the above lines, Mandela mentions 'extraordinary human disaster'. What is the significance of this phrase in his speech?",
+        "answer": "The phrase refers to apartheid, the cruel system of racial discrimination in South Africa. It highlights the long suffering, oppression and denial of rights faced by Black people. Mandela uses this phrase to show the depth of injustice before the birth of a free and proud society."
+      },
+      {
+        "no": "(iv)",
+        "question": "The tone of Mandela in the above excerpt is:",
+        "options": {
+          "A": "1, 2 and 4",
+          "B": "2 and 4",
+          "C": "1 and 2",
+          "D": "4 and 5"
+        },
+        "correctOption": "C",
+        "answer": "1 and 2: unifying and determined. Mandela speaks of a common victory and shows strong determination to build a just society."
+      }
+    ],
+    "source": "2026 PYQ",
+    "verified": true
+  },
+  {
+    "year": "2026",
+    "marks": 3,
+    "type": "Short Answer",
+    "question": "Why does Mandela mention that he was prevented from fulfilling his obligations as a son, a brother, a father, and a husband?",
+    "answer": "Mandela mentions this to show the personal sacrifices caused by apartheid and the freedom struggle. Black people were denied basic rights and were forced into secrecy and rebellion. Due to this, he could not properly fulfil his duties towards his family as a son, brother, father and husband.",
+    "source": "2026 PYQ",
+    "verified": true
+  },
+  {
+    "year": "2026",
+    "marks": 3,
+    "type": "Short Answer",
+    "question": "What is the vision of freedom that comes through the speech of Nelson Mandela?",
+    "answer": "Mandela's vision of freedom is inclusive and universal. He wants freedom from racial oppression, poverty, suffering, gender discrimination and all forms of domination. His speech presents a society where all people, Black and White, live with equality, dignity, justice and mutual respect.",
+    "source": "2026 PYQ",
+    "verified": true
+  },
+  {
+    "year": "2026",
+    "marks": 5,
+    "type": "Extract Based",
+    "extract": "I have cherished the ideal of a democratic and free society in which all persons live together in harmony and with equal opportunities. It is an ideal which I hope to live for and to achieve. But if needs be, it is an ideal for which I am prepared to die.",
+    "subQuestions": [
+      {
+        "no": "(i)",
+        "question": "What is the main ideal Mandela is talking about?",
+        "options": {
+          "A": "economic prosperity",
+          "B": "representative and free society",
+          "C": "absolute power",
+          "D": "finishing racism"
+        },
+        "correctOption": "B",
+        "answer": "Representative and free society. Mandela speaks of a democratic and free society where everyone has equal opportunities."
+      },
+      {
+        "no": "(ii)",
+        "question": "How does the statement reflect Mandela's commitment to justice?",
+        "answer": "The statement shows Mandela's complete dedication to justice. He is ready to live and even die for a democratic society where all people live together in harmony, equality and freedom. This proves his deep commitment to ending oppression."
+      },
+      {
+        "no": "(iii)",
+        "question": "Fill in the blank: Nelson's vision was not simply to reverse the oppression but to end it completely as he wishes to (fight/appease) all forms of domination.",
+        "answer": "fight"
+      },
+      {
+        "no": "(iv)",
+        "question": "The phrase 'prepared to die' shows Mandela's:",
+        "options": {
+          "A": "anxiety",
+          "B": "desperation",
+          "C": "passion",
+          "D": "uprightness"
+        },
+        "correctOption": "C",
+        "answer": "Passion. It shows Mandela's intense dedication to freedom, equality and justice."
+      }
+    ],
+    "source": "2026 PYQ",
+    "verified": true
+  },
+  {
     "year": "2025",
     "marks": 3,
     "type": "Short Answer",
@@ -23,6 +151,114 @@
     "type": "Long Answer",
     "question": "Comment on the reactions and feelings of Lencho and Nelson Mandela when they faced challenges in their lives.",
     "answer": "Lencho and Nelson Mandela both faced serious challenges, but they responded with hope and determination. Lencho's crop was destroyed by a hailstorm, yet he did not lose faith. He believed that God would help him and wrote a letter asking for money. His reaction shows deep faith and trust in divine help. Mandela faced a much larger challenge: racial injustice and oppression in South Africa. He suffered imprisonment and sacrifice, but he did not give up his dream of freedom and equality. Lencho teaches us the value of faith in difficult times, while Mandela teaches courage, patience and commitment to a noble cause. Both characters show that hope and belief help human beings face adversity.",
+    "source": "2025 PYQ",
+    "verified": true
+  },
+  {
+    "year": "2025",
+    "marks": 3,
+    "type": "Short Answer",
+    "question": "Mandela in his speech says, \"The policy of apartheid created a deep and lasting wound in my country and my people.\" Explain the significance of the word \"wound\" as used by Mandela.",
+    "answer": "When Mandela calls apartheid a deep and lasting wound, he compares it to a serious injury inflicted on the whole nation. Apartheid caused physical suffering, emotional pain and social division. Its effects remained even after legal change, so healing required justice, equality and reconciliation.",
+    "source": "2025 PYQ",
+    "verified": true
+  },
+  {
+    "year": "2025",
+    "marks": 3,
+    "type": "Short Answer",
+    "question": "Why does the author use the phrase \"that drove a law-abiding citizen to become a criminal\" to describe Mandela?",
+    "answer": "Mandela uses this phrase to show that unjust apartheid laws forced honest people to oppose the law in order to fight for justice. He was not a criminal by nature; the cruel system labelled his noble resistance as criminal behaviour.",
+    "source": "2025 PYQ",
+    "verified": true
+  },
+  {
+    "year": "2025",
+    "marks": 3,
+    "type": "Short Answer",
+    "question": "How did Mandela learn the meaning of courage?",
+    "answer": "Mandela learned the meaning of courage from the brave men and women who suffered torture, imprisonment and death for freedom. He realised that courage is not absence of fear, but the ability to overcome fear and continue working for a just cause.",
+    "source": "2025 PYQ",
+    "verified": true
+  },
+  {
+    "year": "2025",
+    "marks": 3,
+    "type": "Short Answer",
+    "question": "The transition from the apartheid system in South Africa to a new era of equality reflects broader historical trends in the struggle for human rights and social justice. Elaborate.",
+    "answer": "South Africa's transition from apartheid to democracy reflects the worldwide struggle for equality, dignity and justice. It shows that oppressive systems can be defeated through courage, sacrifice and unity. Like other human rights movements, it proves that freedom and equality require long collective struggle.",
+    "source": "2025 PYQ",
+    "verified": true
+  },
+  {
+    "year": "2025",
+    "marks": 3,
+    "type": "Short Answer",
+    "question": "Why did Mandela feel that liberation was important for both, the oppressor and the oppressed?",
+    "answer": "Mandela believed that oppression damages both sides. The oppressed lose freedom and dignity, while the oppressor becomes trapped in hatred, fear and prejudice. True liberation restores humanity to both, freeing one from suffering and the other from moral corruption.",
+    "source": "2025 PYQ",
+    "verified": true
+  },
+  {
+    "year": "2025",
+    "marks": 3,
+    "type": "Short Answer",
+    "question": "How did Nelson Mandela's understanding of freedom change over the course of time?",
+    "answer": "As a child, Mandela thought freedom meant simple joys like running in fields and swimming in streams. Later, he wanted personal freedom. Finally, he realised that his freedom was meaningless unless all his people were free with dignity, equality and justice.",
+    "source": "2025 PYQ",
+    "verified": true
+  },
+  {
+    "year": "2025",
+    "marks": 3,
+    "type": "Short Answer",
+    "question": "Why does Nelson Mandela feel very strongly about 'an extraordinary human disaster'?",
+    "answer": "Mandela calls apartheid an extraordinary human disaster because it caused long-lasting racial oppression, suffering and humiliation. It destroyed families, denied basic rights and wounded the dignity of millions. Its cruelty deeply damaged the moral life of South Africa.",
+    "source": "2025 PYQ",
+    "verified": true
+  },
+  {
+    "year": "2025",
+    "marks": 1,
+    "type": "Short Answer",
+    "question": "What effect does the experience as described in the lines below have on the speaker? \"Time and again, I have seen men and women risk their lives for an idea.\"",
+    "answer": "The experience inspired Mandela and taught him the true meaning of courage: facing fear and risking one's life for a noble ideal.",
+    "source": "2025 PYQ",
+    "verified": true
+  },
+  {
+    "year": "2025",
+    "marks": 1,
+    "type": "Short Answer",
+    "question": "Select one inference about the idea of courage from the context: \"I learned that courage was not the absence of fear, but the triumph over it.\"",
+    "answer": "The correct inference is the ability to overcome fear. Mandela means that a brave person feels fear but conquers it while standing for what is right.",
+    "source": "2025 PYQ",
+    "verified": true
+  },
+  {
+    "year": "2025",
+    "marks": 2,
+    "type": "Short Answer",
+    "question": "According to the author, what does true courage entail? How does this perspective differ from a common misconception about courage?",
+    "answer": "According to Mandela, true courage means overcoming fear, not being completely fearless. The common misconception is that brave people never feel afraid. Mandela explains that real bravery lies in controlling fear and continuing to act for justice.",
+    "source": "2025 PYQ",
+    "verified": true
+  },
+  {
+    "year": "2025",
+    "marks": 1,
+    "type": "Short Answer",
+    "question": "Fill in the blank with the correct phrase: Men stood up to torture showing strength and resilience that is ________.",
+    "answer": "impossible to understand",
+    "source": "2025 PYQ",
+    "verified": true
+  },
+  {
+    "year": "2025",
+    "marks": 6,
+    "type": "Long Answer",
+    "question": "In 'The Ball Poem', Berryman explores the themes of loss, growing up, and transformation. Mandela also experienced loss of freedom and suffering with his countrymen during his growing years on the basis of race and colour. Compare and contrast the commonality of themes in both texts.",
+    "answer": "Both 'The Ball Poem' and 'Nelson Mandela: Long Walk to Freedom' explore loss, growth and transformation. In the poem, the boy loses his ball, which represents childhood innocence. Through this loss, he learns responsibility and the need to accept pain as part of life. Mandela also experiences loss, but on a much larger social and political scale. He loses personal freedom and witnesses the suffering of his people under apartheid. This suffering transforms him into a courageous leader committed to justice. The boy's loss is personal, while Mandela's loss is collective. Yet both texts show that pain can become a source of maturity, strength and transformation.",
     "source": "2025 PYQ",
     "verified": true
   },
@@ -232,6 +468,24 @@
     "verified": true
   },
   {
+    "year": "2021",
+    "marks": 1,
+    "type": "Short Answer",
+    "question": "'and now it was a gathering of different colours'. What does the author mean by the underlined phrase?",
+    "answer": "It means leaders and people of different nations and races had gathered at the inauguration. This symbolised unity and international support for South Africa's first democratic non-racial government.",
+    "source": "2021 PYQ",
+    "verified": true
+  },
+  {
+    "year": "2021",
+    "marks": 1,
+    "type": "Short Answer",
+    "question": "'In life, every man has twin obligations', according to Nelson Mandela. What are these twin obligations?",
+    "answer": "The twin obligations are first to one's family, parents, wife and children, and second to one's country, people and community.",
+    "source": "2021 PYQ",
+    "verified": true
+  },
+  {
     "year": "2020",
     "marks": 2,
     "type": "Short Answer",
@@ -295,6 +549,24 @@
     "question": "What according to Nelson Mandela are a man's twin obligations?",
     "answer": "According to Mandela, every man has twin obligations. The first is towards his family, parents, wife and children. The second is towards his people, community and country. A person is truly free only when he can fulfil both duties without fear or restriction.",
     "source": "2019 PYQ",
+    "verified": true
+  },
+  {
+    "year": "2012",
+    "marks": 2,
+    "type": "Short Answer",
+    "question": "What did Mandela realize about his brothers and sisters?",
+    "answer": "Mandela realised that people of his race had no freedom in their own country simply because of the colour of their skin. This painful awareness inspired him to dedicate his life to the struggle for equality, freedom and human dignity.",
+    "source": "CBSE 2012 PYQ",
+    "verified": true
+  },
+  {
+    "year": "2011",
+    "marks": 2,
+    "type": "Short Answer",
+    "question": "What did Mandela think for oppressor and oppressed?",
+    "answer": "Mandela believed that both the oppressor and the oppressed lose their humanity. The oppressed are robbed of freedom and dignity, while the oppressor becomes trapped in hatred and prejudice. Therefore, both need liberation.",
+    "source": "CBSE 2011 PYQ",
     "verified": true
   }
 ]
