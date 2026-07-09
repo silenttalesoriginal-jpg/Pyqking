@@ -10,6 +10,17 @@ let pageStack = [];
 let currentQuestions = [];
 let currentTitlePrefix = "📅 Previous Year Questions";
 
+const chapterData = {
+  letterToGod: {
+    title: "A Letter to God",
+    base: "a-letter-to-god"
+  },
+  nelsonMandela: {
+    title: "Nelson Mandela",
+    base: "nelson-mandela"
+  }
+};
+
 document.addEventListener("mousemove", (e) => {
   if (!mouseGlow) return;
   mouseGlow.style.left = e.clientX + "px";
@@ -20,16 +31,8 @@ const pages = {
   home: {
     subtitle: "Choose your class",
     cards: [
-      {
-        title: "📘 Class 10",
-        desc: "CBSE Class 10 PYQs with answers",
-        action: "class10"
-      },
-      {
-        title: "📙 Class 12",
-        desc: "Coming Soon",
-        soon: true
-      }
+      { title: "📘 Class 10", desc: "CBSE Class 10 PYQs with answers", action: "class10" },
+      { title: "📙 Class 12", desc: "Coming Soon", soon: true }
     ]
   },
 
@@ -56,8 +59,8 @@ const pages = {
   firstFlight: {
     subtitle: "First Flight Chapters",
     cards: [
-      { title: "Ch-1 A Letter to God", desc: "PYQs, Oral Comprehension & Exercises", action: "letterToGodMenu" },
-      { title: "Ch-2 Nelson Mandela", desc: "Coming Soon", soon: true },
+      { title: "Ch-1 A Letter to God", desc: "PYQs, Oral Comprehension & Exercises", action: "menu:letterToGod" },
+      { title: "Ch-2 Nelson Mandela", desc: "PYQs, Oral Comprehension & Exercises", action: "menu:nelsonMandela" },
       { title: "Ch-3 Two Stories About Flying", desc: "Coming Soon", soon: true },
       { title: "Ch-4 From the Diary of Anne Frank", desc: "Coming Soon", soon: true },
       { title: "Ch-5 Glimpses of India", desc: "Coming Soon", soon: true },
@@ -65,15 +68,6 @@ const pages = {
       { title: "Ch-7 Madam Rides the Bus", desc: "Coming Soon", soon: true },
       { title: "Ch-8 The Sermon at Benares", desc: "Coming Soon", soon: true },
       { title: "Ch-9 The Proposal", desc: "Coming Soon", soon: true }
-    ]
-  },
-
-  letterToGodMenu: {
-    subtitle: "A Letter to God",
-    cards: [
-      { title: "📅 PYQs", desc: "Previous Year Questions", action: "letterToGod" },
-      { title: "🎤 Oral Comprehension", desc: "NCERT Oral Questions", action: "oralComprehension" },
-      { title: "📝 Exercise Questions", desc: "NCERT Back Exercise", action: "exerciseQuestions" }
     ]
   }
 };
@@ -83,7 +77,6 @@ function renderPage(pageName, push = true) {
 
   pyqArea.classList.add("hidden");
   cardsArea.classList.remove("hidden");
-
   cardsArea.innerHTML = "";
   questionsArea.innerHTML = "";
   searchInput.value = "";
@@ -99,128 +92,137 @@ function renderPage(pageName, push = true) {
   pageSubtitle.textContent = page.subtitle;
   backBtn.classList.toggle("hidden", pageStack.length <= 1);
 
-  page.cards.forEach(card => {
-    const div = document.createElement("div");
-    div.className = "card" + (card.soon ? " soon" : "");
+  page.cards.forEach(card => createCard(card));
+}
 
-    div.innerHTML = `
-      <div class="card-content">
-        <h2>${card.title}</h2>
-        <p>${card.desc}</p>
-        <div class="enter">${card.soon ? "🚧 Coming Soon" : "ENTER →"}</div>
-      </div>
-    `;
+function renderChapterMenu(chapterKey) {
+  const chapter = chapterData[chapterKey];
+  if (!chapter) return;
 
-    if (!card.soon) {
-      div.onclick = () => {
-        if (card.action === "letterToGod") {
-          openLetterToGod();
-        } else if (card.action === "oralComprehension") {
-          openOralComprehension();
-        } else if (card.action === "exerciseQuestions") {
-          openExerciseQuestions();
-        } else {
-          renderPage(card.action);
-        }
-      };
-    }
+  pageStack.push(`menu:${chapterKey}`);
 
-    cardsArea.appendChild(div);
-  });
+  pyqArea.classList.add("hidden");
+  cardsArea.classList.remove("hidden");
+  cardsArea.innerHTML = "";
+  questionsArea.innerHTML = "";
+  searchInput.value = "";
+
+  pageSubtitle.textContent = chapter.title;
+  backBtn.classList.remove("hidden");
+
+  [
+    { title: "📅 PYQs", desc: "Previous Year Questions", action: `pyq:${chapterKey}` },
+    { title: "🎤 Oral Comprehension", desc: "NCERT Oral Questions", action: `oral:${chapterKey}` },
+    { title: "📝 Exercise Questions", desc: "NCERT Back Exercise", action: `exercise:${chapterKey}` }
+  ].forEach(card => createCard(card));
+}
+
+function createCard(card) {
+  const div = document.createElement("div");
+  div.className = "card" + (card.soon ? " soon" : "");
+
+  div.innerHTML = `
+    <div class="card-content">
+      <h2>${card.title}</h2>
+      <p>${card.desc}</p>
+      <div class="enter">${card.soon ? "🚧 Coming Soon" : "ENTER →"}</div>
+    </div>
+  `;
+
+  if (!card.soon) {
+    div.onclick = () => handleAction(card.action);
+  }
+
+  cardsArea.appendChild(div);
+}
+
+function handleAction(action) {
+  if (action.startsWith("menu:")) {
+    renderChapterMenu(action.split(":")[1]);
+  } else if (action.startsWith("pyq:")) {
+    openChapterData(action.split(":")[1], "pyq");
+  } else if (action.startsWith("oral:")) {
+    openChapterData(action.split(":")[1], "oral");
+  } else if (action.startsWith("exercise:")) {
+    openChapterData(action.split(":")[1], "exercise");
+  } else {
+    renderPage(action);
+  }
 }
 
 backBtn.onclick = () => {
   if (pageStack.length > 1) {
     pageStack.pop();
     const previous = pageStack.pop();
-    renderPage(previous, false);
+
+    if (previous.startsWith("menu:")) {
+      renderChapterMenu(previous.split(":")[1]);
+    } else {
+      renderPage(previous, false);
+    }
   }
 };
 
-async function openLetterToGod() {
-  pageStack.push("letterToGod");
+async function openChapterData(chapterKey, section) {
+  const chapter = chapterData[chapterKey];
+  if (!chapter) return;
+
+  pageStack.push(`${section}:${chapterKey}`);
 
   cardsArea.classList.add("hidden");
   pyqArea.classList.remove("hidden");
   backBtn.classList.remove("hidden");
-
-  pageSubtitle.textContent = "A Letter to God - Previous Year Questions";
-  searchInput.placeholder = "Search PYQs...";
   searchInput.value = "";
-  currentTitlePrefix = "📅 Previous Year Questions";
 
-  try {
-    const res = await fetch("/data/class10/english/first-flight/a-letter-to-god.json");
-    currentQuestions = await res.json();
-    renderQuestions(currentTitlePrefix);
-  } catch (error) {
-    questionsArea.innerHTML = "<p>Failed to load questions.</p>";
-    console.error(error);
+  let fileName = chapter.base;
+  let title = "";
+  let placeholder = "";
+
+  if (section === "pyq") {
+    fileName = `${chapter.base}.json`;
+    title = `${chapter.title} - Previous Year Questions`;
+    placeholder = "Search PYQs...";
+    currentTitlePrefix = "📅 Previous Year Questions";
   }
-}
 
-async function openOralComprehension() {
-  pageStack.push("oralComprehension");
+  if (section === "oral") {
+    fileName = `${chapter.base}-oral.json`;
+    title = `${chapter.title} - Oral Comprehension`;
+    placeholder = "Search oral comprehension...";
+    currentTitlePrefix = "🎤 Oral Comprehension";
+  }
 
-  cardsArea.classList.add("hidden");
-  pyqArea.classList.remove("hidden");
-  backBtn.classList.remove("hidden");
+  if (section === "exercise") {
+    fileName = `${chapter.base}-exercise.json`;
+    title = `${chapter.title} - Exercise Questions`;
+    placeholder = "Search exercise questions...";
+    currentTitlePrefix = "📝 Exercise Questions";
+  }
 
-  pageSubtitle.textContent = "A Letter to God - Oral Comprehension";
-  searchInput.placeholder = "Search oral comprehension...";
-  searchInput.value = "";
-  currentTitlePrefix = "🎤 Oral Comprehension";
+  pageSubtitle.textContent = title;
+  searchInput.placeholder = placeholder;
 
   try {
-    const res = await fetch("/data/class10/english/first-flight/a-letter-to-god-oral.json");
+    const res = await fetch(`/data/class10/english/first-flight/${fileName}`);
     const data = await res.json();
 
-    currentQuestions = data.map(item => ({
-      year: item.page || item.section || "Oral Comprehension",
-      marks: "NCERT",
-      type: "Oral Comprehension",
-      question: item.question,
-      answer: item.answer,
-      source: item.page || "NCERT",
-      verified: true
-    }));
+    if (section === "pyq") {
+      currentQuestions = data;
+    } else {
+      currentQuestions = data.map(item => ({
+        year: item.page || item.section || title,
+        marks: "NCERT",
+        type: section === "oral" ? "Oral Comprehension" : "Exercise",
+        question: item.question,
+        answer: item.answer,
+        source: item.page || item.section || "NCERT",
+        verified: true
+      }));
+    }
 
     renderQuestions(currentTitlePrefix);
   } catch (error) {
-    questionsArea.innerHTML = "<p>Failed to load oral comprehension.</p>";
-    console.error(error);
-  }
-}
-
-async function openExerciseQuestions() {
-  pageStack.push("exerciseQuestions");
-
-  cardsArea.classList.add("hidden");
-  pyqArea.classList.remove("hidden");
-  backBtn.classList.remove("hidden");
-
-  pageSubtitle.textContent = "A Letter to God - Exercise Questions";
-  searchInput.placeholder = "Search exercise questions...";
-  searchInput.value = "";
-  currentTitlePrefix = "📝 Exercise Questions";
-
-  try {
-    const res = await fetch("/data/class10/english/first-flight/a-letter-to-god-exercise.json");
-    const data = await res.json();
-
-    currentQuestions = data.map(item => ({
-      year: item.section || "Exercise Questions",
-      marks: "NCERT",
-      type: "Exercise",
-      question: item.question,
-      answer: item.answer,
-      source: "NCERT",
-      verified: true
-    }));
-
-    renderQuestions(currentTitlePrefix);
-  } catch (error) {
-    questionsArea.innerHTML = "<p>Failed to load exercise questions.</p>";
+    questionsArea.innerHTML = `<p>Failed to load ${chapter.title} ${section}.</p>`;
     console.error(error);
   }
 }
@@ -318,7 +320,6 @@ function renderQuestions(titlePrefix = currentTitlePrefix) {
 
 function toggleAnswer(id, btn) {
   const ans = document.getElementById(id);
-
   if (!ans) return;
 
   ans.classList.toggle("show");
