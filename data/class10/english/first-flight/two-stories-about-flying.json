@@ -311,6 +311,24 @@
     "verified": true
   },
   {
+    "year": "2023",
+    "marks": 3,
+    "type": "Short Answer",
+    "question": "Family played a vital role in the first flight of the young seagull. Give examples to substantiate the statement.",
+    "answer": "The seagull's family played an important role in helping him overcome fear. His mother tempted him with a piece of fish and stopped just beyond his reach, forcing him to leap. His father ignored and scolded him, while his siblings flew around him and encouraged him to try.",
+    "source": "2023 PYQ",
+    "verified": true
+  },
+  {
+    "year": "2023",
+    "marks": 6,
+    "type": "Long Answer",
+    "question": "Motivation plays an important role in taking risks in life and in succeeding. Discuss with reference to the pilot of the old Dakota and the young seagull.",
+    "answer": "Motivation often provides the push needed to take risks and overcome fear. The young seagull is terrified of flying, but hunger and the sight of fish in his mother's beak become powerful motivating forces. He finally leaps from the ledge and discovers that he can fly. Similarly, the pilot of the old Dakota is eager to reach home and have breakfast with his family. This desire motivates him to enter the dark storm clouds despite the danger. In both cases, strong personal motivation helps the characters take bold risks. Their experiences show that determination and a clear goal can help people cross mental barriers and move towards success.",
+    "source": "2023 PYQ",
+    "verified": true
+  },
+  {
     "year": "2022",
     "marks": 3,
     "type": "Short Answer",
@@ -399,6 +417,42 @@
     "correctOption": "C",
     "answer": "Mystery.",
     "source": "2021 PYQ",
+    "verified": true
+  },
+  {
+    "year": "2020",
+    "marks": 2,
+    "type": "Short Answer",
+    "question": "The sight of the food maddened him. What does this suggest?",
+    "answer": "The young seagull had been hungry for twenty-four hours and was desperate for food. When he saw the fish in his mother's beak, hunger overcame his fear. He leapt towards it and unknowingly made his first flight.",
+    "source": "2020 PYQ",
+    "verified": true
+  },
+  {
+    "year": "2020",
+    "marks": 6,
+    "type": "Long Answer",
+    "question": "How did the young seagull overcome his fear and make his first flight?",
+    "answer": "The young seagull was afraid that his wings would not support him, so he refused to fly even after his siblings succeeded. His family left him alone, and after many hours he became extremely hungry. His mother approached with a piece of fish but stopped just beyond his reach. Maddened by hunger, he jumped towards the food without thinking. At first he fell and was terrified, but soon his wings spread instinctively. He began to glide, then soar, and realised that he could fly. His fear disappeared and was replaced by confidence and joy.",
+    "source": "2020 PYQ",
+    "verified": true
+  },
+  {
+    "year": "2019",
+    "marks": 2,
+    "type": "Short Answer",
+    "question": "How did the seagull's parents try to make him fly?",
+    "answer": "The parents used several methods to encourage him. They scolded and threatened him, ignored him, left him hungry on the ledge and finally tempted him with food so that he would leap and fly.",
+    "source": "2019 PYQ",
+    "verified": true
+  },
+  {
+    "year": "2019",
+    "marks": 2,
+    "type": "Short Answer",
+    "question": "Why was the young seagull afraid to fly?",
+    "answer": "The young seagull lacked confidence and believed that his wings would not support his weight. He feared falling into the sea below, so he could not gather the courage to leave the ledge.",
+    "source": "2019 PYQ",
     "verified": true
   }
 ]
