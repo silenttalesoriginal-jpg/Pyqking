@@ -29,7 +29,7 @@ const chapterData = {
     title: "Two Stories About Flying",
     base: "two-stories-about-flying",
     oral: false,
-    exercise: false
+    exercise: true
   }
 };
 
@@ -131,32 +131,24 @@ function renderChapterMenu(chapterKey) {
     title: "📅 PYQs",
     desc: "Previous Year Questions",
     action: `pyq:${chapterKey}`
-  },
-
-  chapter.oral
-    ? {
-        title: "🎤 Oral Comprehension",
-        desc: "NCERT Oral Questions",
-        action: `oral:${chapterKey}`
-      }
-    : {
-        title: "🎤 Oral Comprehension",
-        desc: "Coming Soon",
-        soon: true
-      },
-
-  chapter.exercise
-    ? {
-        title: "📝 Exercise Questions",
-        desc: "NCERT Back Exercise",
-        action: `exercise:${chapterKey}`
-      }
-    : {
-        title: "📝 Exercise Questions",
-        desc: "Coming Soon",
-        soon: true
-      }
+  }
 ];
+
+if (chapter.oral) {
+  menuCards.push({
+    title: "🎤 Oral Comprehension",
+    desc: "NCERT Oral Questions",
+    action: `oral:${chapterKey}`
+  });
+}
+
+if (chapter.exercise) {
+  menuCards.push({
+    title: "📝 Exercise Questions",
+    desc: "NCERT Back Exercise",
+    action: `exercise:${chapterKey}`
+  });
+}
 
 menuCards.forEach(card => createCard(card));
 }
