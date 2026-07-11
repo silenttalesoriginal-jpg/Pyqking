@@ -13,11 +13,23 @@ let currentTitlePrefix = "📅 Previous Year Questions";
 const chapterData = {
   letterToGod: {
     title: "A Letter to God",
-    base: "a-letter-to-god"
+    base: "a-letter-to-god",
+    oral: true,
+    exercise: true
   },
+
   nelsonMandela: {
     title: "Nelson Mandela",
-    base: "nelson-mandela"
+    base: "nelson-mandela",
+    oral: true,
+    exercise: true
+  },
+
+  twoStoriesAboutFlying: {
+    title: "Two Stories About Flying",
+    base: "two-stories-about-flying",
+    oral: false,
+    exercise: false
   }
 };
 
@@ -61,7 +73,11 @@ const pages = {
     cards: [
       { title: "Ch-1 A Letter to God", desc: "PYQs, Oral Comprehension & Exercises", action: "menu:letterToGod" },
       { title: "Ch-2 Nelson Mandela", desc: "PYQs, Oral Comprehension & Exercises", action: "menu:nelsonMandela" },
-      { title: "Ch-3 Two Stories About Flying", desc: "Coming Soon", soon: true },
+      {
+        title: "Ch-3 Two Stories About Flying",
+        desc: "PYQs Available",
+        action: "menu:twoStoriesAboutFlying"
+      },
       { title: "Ch-4 From the Diary of Anne Frank", desc: "Coming Soon", soon: true },
       { title: "Ch-5 Glimpses of India", desc: "Coming Soon", soon: true },
       { title: "Ch-6 Mijbil the Otter", desc: "Coming Soon", soon: true },
@@ -110,11 +126,39 @@ function renderChapterMenu(chapterKey) {
   pageSubtitle.textContent = chapter.title;
   backBtn.classList.remove("hidden");
 
-  [
-    { title: "📅 PYQs", desc: "Previous Year Questions", action: `pyq:${chapterKey}` },
-    { title: "🎤 Oral Comprehension", desc: "NCERT Oral Questions", action: `oral:${chapterKey}` },
-    { title: "📝 Exercise Questions", desc: "NCERT Back Exercise", action: `exercise:${chapterKey}` }
-  ].forEach(card => createCard(card));
+  const menuCards = [
+  {
+    title: "📅 PYQs",
+    desc: "Previous Year Questions",
+    action: `pyq:${chapterKey}`
+  },
+
+  chapter.oral
+    ? {
+        title: "🎤 Oral Comprehension",
+        desc: "NCERT Oral Questions",
+        action: `oral:${chapterKey}`
+      }
+    : {
+        title: "🎤 Oral Comprehension",
+        desc: "Coming Soon",
+        soon: true
+      },
+
+  chapter.exercise
+    ? {
+        title: "📝 Exercise Questions",
+        desc: "NCERT Back Exercise",
+        action: `exercise:${chapterKey}`
+      }
+    : {
+        title: "📝 Exercise Questions",
+        desc: "Coming Soon",
+        soon: true
+      }
+];
+
+menuCards.forEach(card => createCard(card));
 }
 
 function createCard(card) {
