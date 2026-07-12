@@ -272,60 +272,60 @@ const pages = {
   },
 
   firstFlightPoems: {
-    subtitle: "First Flight - Poems",
-    cards: [
-      {
-        title: "Poem 1 - Dust of Snow",
-        desc: "PYQs & Exercise Questions",
-        action: "menu:dustOfSnow"
-      },
-      {
-        title: "Poem 2 - Fire and Ice",
-        desc: "PYQs & Exercise Questions",
-        action: "menu:fireAndIce"
-      },
-      {
-        title: "Poem 3 - A Tiger in the Zoo",
-        desc: "PYQs & Exercise Questions",
-        action: "menu:tigerInTheZoo"
-      },
-      {
-        title: "Poem 4 - How to Tell Wild Animals",
-        desc: "PYQs & Exercise Questions",
-        action: "menu:howToTellWildAnimals"
-      },
-      {
-        title: "Poem 5 - The Ball Poem",
-        desc: "PYQs & Exercise Questions",
-        action: "menu:theBallPoem"
-      },
-      {
-        title: "Poem 6 - Amanda!",
-        desc: "PYQs & Exercise Questions",
-        action: "menu:amanda"
-      },
-      {
-        title: "Poem 7 - The Trees",
-        desc: "PYQs & Exercise Questions",
-        action: "menu:theTrees"
-      },
-      {
-        title: "Poem 8 - Fog",
-        desc: "PYQs & Exercise Questions",
-        action: "menu:fog"
-      },
-      {
-        title: "Poem 9 - The Tale of Custard the Dragon",
-        desc: "PYQs & Exercise Questions",
-        action: "menu:custardTheDragon"
-      },
-      {
-        title: "Poem 10 - For Anne Gregory",
-        desc: "PYQs & Exercise Questions",
-        action: "menu:forAnneGregory"
-      }
-    ]
-  }
+     subtitle: "First Flight - Poems",
+     cards: [
+       {
+         title: "Poem 1 - Dust of Snow",
+         desc: "Coming Soon",
+         soon: true
+       },
+       {
+         title: "Poem 2 - Fire and Ice",
+         desc: "Coming Soon",
+         soon: true
+       },
+       {
+         title: "Poem 3 - A Tiger in the Zoo",
+         desc: "Coming Soon",
+         soon: true
+       },
+       {
+         title: "Poem 4 - How to Tell Wild Animals",
+         desc: "Coming Soon",
+         soon: true
+       },
+       {
+         title: "Poem 5 - The Ball Poem",
+         desc: "PYQs & Exercise Questions",
+         action: "menu:theBallPoem"
+       },
+       {
+         title: "Poem 6 - Amanda!",
+         desc: "Coming Soon",
+         soon: true
+       },
+       {
+         title: "Poem 7 - The Trees",
+         desc: "Coming Soon",
+         soon: true
+       },
+       {
+         title: "Poem 8 - Fog",
+         desc: "Coming Soon",
+         soon: true
+       },
+       {
+         title: "Poem 9 - The Tale of Custard the Dragon",
+         desc: "Coming Soon",
+         soon: true
+       },
+       {
+         title: "Poem 10 - For Anne Gregory",
+         desc: "Coming Soon",
+         soon: true
+       }
+     ]
+   },
 };
 
 /* =========================================================
