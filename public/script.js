@@ -10,193 +10,336 @@ let pageStack = [];
 let currentQuestions = [];
 let currentTitlePrefix = "📅 Previous Year Questions";
 
+/* =========================================================
+   CHAPTER AND POEM DATA
+========================================================= */
+
 const chapterData = {
   letterToGod: {
     title: "A Letter to God",
     base: "a-letter-to-god",
     oral: true,
-    exercise: true
+    exercise: true,
+    isPoem: false
   },
 
   nelsonMandela: {
     title: "Nelson Mandela",
     base: "nelson-mandela",
     oral: true,
-    exercise: true
+    exercise: true,
+    isPoem: false
   },
 
   twoStoriesAboutFlying: {
     title: "Two Stories About Flying",
     base: "two-stories-about-flying",
     oral: false,
-    exercise: true
+    exercise: true,
+    isPoem: false
+  },
+
+  dustOfSnow: {
+    title: "Dust of Snow",
+    base: "dust-of-snow",
+    oral: false,
+    exercise: false,
+    isPoem: true
+  },
+
+  fireAndIce: {
+    title: "Fire and Ice",
+    base: "fire-and-ice",
+    oral: false,
+    exercise: false,
+    isPoem: true
+  },
+
+  tigerInTheZoo: {
+    title: "A Tiger in the Zoo",
+    base: "a-tiger-in-the-zoo",
+    oral: false,
+    exercise: false,
+    isPoem: true
+  },
+
+  howToTellWildAnimals: {
+    title: "How to Tell Wild Animals",
+    base: "how-to-tell-wild-animals",
+    oral: false,
+    exercise: false,
+    isPoem: true
+  },
+
+  theBallPoem: {
+    title: "The Ball Poem",
+    base: "the-ball-poem",
+    oral: false,
+    exercise: true,
+    isPoem: true
+  },
+
+  amanda: {
+    title: "Amanda!",
+    base: "amanda",
+    oral: false,
+    exercise: false,
+    isPoem: true
+  },
+
+  theTrees: {
+    title: "The Trees",
+    base: "the-trees",
+    oral: false,
+    exercise: false,
+    isPoem: true
+  },
+
+  fog: {
+    title: "Fog",
+    base: "fog",
+    oral: false,
+    exercise: false,
+    isPoem: true
+  },
+
+  custardTheDragon: {
+    title: "The Tale of Custard the Dragon",
+    base: "the-tale-of-custard-the-dragon",
+    oral: false,
+    exercise: false,
+    isPoem: true
+  },
+
+  forAnneGregory: {
+    title: "For Anne Gregory",
+    base: "for-anne-gregory",
+    oral: false,
+    exercise: false,
+    isPoem: true
   }
 };
 
-document.addEventListener("mousemove", (e) => {
+/* =========================================================
+   MOUSE GLOW
+========================================================= */
+
+document.addEventListener("mousemove", (event) => {
   if (!mouseGlow) return;
-  mouseGlow.style.left = e.clientX + "px";
-  mouseGlow.style.top = e.clientY + "px";
+
+  mouseGlow.style.left = `${event.clientX}px`;
+  mouseGlow.style.top = `${event.clientY}px`;
 });
+
+/* =========================================================
+   WEBSITE PAGES
+========================================================= */
 
 const pages = {
   home: {
     subtitle: "Choose your class",
     cards: [
-      { title: "📘 Class 10", desc: "CBSE Class 10 PYQs with answers", action: "class10" },
-      { title: "📙 Class 12", desc: "Coming Soon", soon: true }
+      {
+        title: "📘 Class 10",
+        desc: "CBSE Class 10 PYQs with answers",
+        action: "class10"
+      },
+      {
+        title: "📙 Class 12",
+        desc: "Coming Soon",
+        soon: true
+      }
     ]
   },
 
   class10: {
     subtitle: "Class 10 Subjects",
     cards: [
-      { title: "📖 English", desc: "First Flight & Footprints Without Feet", action: "english" },
-      { title: "🧪 Science", desc: "Coming Soon", soon: true },
-      { title: "📐 Maths", desc: "Coming Soon", soon: true },
-      { title: "🌍 SST", desc: "Coming Soon", soon: true },
-      { title: "💻 Computer Code 165", desc: "Coming Soon", soon: true },
-      { title: "📕 Hindi", desc: "Coming Soon", soon: true }
+      {
+        title: "📖 English",
+        desc: "First Flight & Footprints Without Feet",
+        action: "english"
+      },
+      {
+        title: "🧪 Science",
+        desc: "Coming Soon",
+        soon: true
+      },
+      {
+        title: "📐 Maths",
+        desc: "Coming Soon",
+        soon: true
+      },
+      {
+        title: "🌍 SST",
+        desc: "Coming Soon",
+        soon: true
+      },
+      {
+        title: "💻 Computer Code 165",
+        desc: "Coming Soon",
+        soon: true
+      },
+      {
+        title: "📕 Hindi",
+        desc: "Coming Soon",
+        soon: true
+      }
     ]
   },
 
   english: {
     subtitle: "Class 10 English Books",
     cards: [
-      { title: "📘 First Flight", desc: "Main textbook", action: "firstFlight" },
-      { title: "📙 Footprints Without Feet", desc: "Coming Soon", soon: true }
+      {
+        title: "📘 First Flight",
+        desc: "Main textbook",
+        action: "firstFlight"
+      },
+      {
+        title: "📙 Footprints Without Feet",
+        desc: "Coming Soon",
+        soon: true
+      }
     ]
   },
 
   firstFlight: {
-  subtitle: "First Flight",
-  cards: [
-    {
-      title: "📘 Chapters",
-      desc: "All prose chapters from First Flight",
-      action: "firstFlightChapters"
-    },
-    {
-      title: "📜 Poems",
-      desc: "All poems from First Flight",
-      action: "firstFlightPoems"
-    }
-  ]
-},
+    subtitle: "First Flight",
+    cards: [
+      {
+        title: "📘 Chapters",
+        desc: "All prose chapters from First Flight",
+        action: "firstFlightChapters"
+      },
+      {
+        title: "📜 Poems",
+        desc: "All poems from First Flight",
+        action: "firstFlightPoems"
+      }
+    ]
+  },
 
-firstFlightChapters: {
-  subtitle: "First Flight - Chapters",
-  cards: [
-    {
-      title: "Ch-1 A Letter to God",
-      desc: "PYQs, Oral Comprehension & Exercises",
-      action: "menu:letterToGod"
-    },
-    {
-      title: "Ch-2 Nelson Mandela",
-      desc: "PYQs, Oral Comprehension & Exercises",
-      action: "menu:nelsonMandela"
-    },
-    {
-      title: "Ch-3 Two Stories About Flying",
-      desc: "PYQs & Exercise Questions",
-      action: "menu:twoStoriesAboutFlying"
-    },
-    {
-      title: "Ch-4 From the Diary of Anne Frank",
-      desc: "Coming Soon",
-      soon: true
-    },
-    {
-      title: "Ch-5 Glimpses of India",
-      desc: "Coming Soon",
-      soon: true
-    },
-    {
-      title: "Ch-6 Mijbil the Otter",
-      desc: "Coming Soon",
-      soon: true
-    },
-    {
-      title: "Ch-7 Madam Rides the Bus",
-      desc: "Coming Soon",
-      soon: true
-    },
-    {
-      title: "Ch-8 The Sermon at Benares",
-      desc: "Coming Soon",
-      soon: true
-    },
-    {
-      title: "Ch-9 The Proposal",
-      desc: "Coming Soon",
-      soon: true
-    }
-  ]
-},
+  firstFlightChapters: {
+    subtitle: "First Flight - Chapters",
+    cards: [
+      {
+        title: "Ch-1 A Letter to God",
+        desc: "PYQs, Oral Comprehension & Exercises",
+        action: "menu:letterToGod"
+      },
+      {
+        title: "Ch-2 Nelson Mandela",
+        desc: "PYQs, Oral Comprehension & Exercises",
+        action: "menu:nelsonMandela"
+      },
+      {
+        title: "Ch-3 Two Stories About Flying",
+        desc: "PYQs & Exercise Questions",
+        action: "menu:twoStoriesAboutFlying"
+      },
+      {
+        title: "Ch-4 From the Diary of Anne Frank",
+        desc: "Coming Soon",
+        soon: true
+      },
+      {
+        title: "Ch-5 Glimpses of India",
+        desc: "Coming Soon",
+        soon: true
+      },
+      {
+        title: "Ch-6 Mijbil the Otter",
+        desc: "Coming Soon",
+        soon: true
+      },
+      {
+        title: "Ch-7 Madam Rides the Bus",
+        desc: "Coming Soon",
+        soon: true
+      },
+      {
+        title: "Ch-8 The Sermon at Benares",
+        desc: "Coming Soon",
+        soon: true
+      },
+      {
+        title: "Ch-9 The Proposal",
+        desc: "Coming Soon",
+        soon: true
+      }
+    ]
+  },
 
-firstFlightPoems: {
-  subtitle: "First Flight - Poems",
-  cards: [
-    {
-      title: "Poem 1 - Dust of Snow",
-      desc: "Coming Soon",
-      soon: true
-    },
-    {
-      title: "Poem 2 - Fire and Ice",
-      desc: "Coming Soon",
-      soon: true
-    },
-    {
-      title: "Poem 3 - A Tiger in the Zoo",
-      desc: "Coming Soon",
-      soon: true
-    },
-    {
-      title: "Poem 4 - How to Tell Wild Animals",
-      desc: "Coming Soon",
-      soon: true
-    },
-    {
-      title: "Poem 5 - The Ball Poem",
-      desc: "Coming Soon",
-      soon: true
-    },
-    {
-      title: "Poem 6 - Amanda!",
-      desc: "Coming Soon",
-      soon: true
-    },
-    {
-      title: "Poem 7 - The Trees",
-      desc: "Coming Soon",
-      soon: true
-    },
-    {
-      title: "Poem 8 - Fog",
-      desc: "Coming Soon",
-      soon: true
-    },
-    {
-      title: "Poem 9 - The Tale of Custard the Dragon",
-      desc: "Coming Soon",
-      soon: true
-    },
-    {
-      title: "Poem 10 - For Anne Gregory",
-      desc: "Coming Soon",
-      soon: true
-    }
-  ]
-}
+  firstFlightPoems: {
+    subtitle: "First Flight - Poems",
+    cards: [
+      {
+        title: "Poem 1 - Dust of Snow",
+        desc: "PYQs & Exercise Questions",
+        action: "menu:dustOfSnow"
+      },
+      {
+        title: "Poem 2 - Fire and Ice",
+        desc: "PYQs & Exercise Questions",
+        action: "menu:fireAndIce"
+      },
+      {
+        title: "Poem 3 - A Tiger in the Zoo",
+        desc: "PYQs & Exercise Questions",
+        action: "menu:tigerInTheZoo"
+      },
+      {
+        title: "Poem 4 - How to Tell Wild Animals",
+        desc: "PYQs & Exercise Questions",
+        action: "menu:howToTellWildAnimals"
+      },
+      {
+        title: "Poem 5 - The Ball Poem",
+        desc: "PYQs & Exercise Questions",
+        action: "menu:theBallPoem"
+      },
+      {
+        title: "Poem 6 - Amanda!",
+        desc: "PYQs & Exercise Questions",
+        action: "menu:amanda"
+      },
+      {
+        title: "Poem 7 - The Trees",
+        desc: "PYQs & Exercise Questions",
+        action: "menu:theTrees"
+      },
+      {
+        title: "Poem 8 - Fog",
+        desc: "PYQs & Exercise Questions",
+        action: "menu:fog"
+      },
+      {
+        title: "Poem 9 - The Tale of Custard the Dragon",
+        desc: "PYQs & Exercise Questions",
+        action: "menu:custardTheDragon"
+      },
+      {
+        title: "Poem 10 - For Anne Gregory",
+        desc: "PYQs & Exercise Questions",
+        action: "menu:forAnneGregory"
+      }
+    ]
+  }
 };
 
+/* =========================================================
+   NORMAL PAGE RENDERING
+========================================================= */
+
 function renderPage(pageName, push = true) {
-  if (push) pageStack.push(pageName);
+  if (push) {
+    pageStack.push(pageName);
+  }
 
   pyqArea.classList.add("hidden");
   cardsArea.classList.remove("hidden");
+
   cardsArea.innerHTML = "";
   questionsArea.innerHTML = "";
   searchInput.value = "";
@@ -205,24 +348,41 @@ function renderPage(pageName, push = true) {
 
   if (!page) {
     pageSubtitle.textContent = "Page not found";
-    cardsArea.innerHTML = `<p style="text-align:center;">Page not found.</p>`;
+    cardsArea.innerHTML = `
+      <p style="text-align:center;">
+        Page not found.
+      </p>
+    `;
     return;
   }
 
   pageSubtitle.textContent = page.subtitle;
   backBtn.classList.toggle("hidden", pageStack.length <= 1);
 
-  page.cards.forEach(card => createCard(card));
+  page.cards.forEach((card) => {
+    createCard(card);
+  });
 }
 
-function renderChapterMenu(chapterKey) {
-  const chapter = chapterData[chapterKey];
-  if (!chapter) return;
+/* =========================================================
+   CHAPTER / POEM MENU
+========================================================= */
 
-  pageStack.push(`menu:${chapterKey}`);
+function renderChapterMenu(chapterKey, push = true) {
+  const chapter = chapterData[chapterKey];
+
+  if (!chapter) {
+    pageSubtitle.textContent = "Chapter not found";
+    return;
+  }
+
+  if (push) {
+    pageStack.push(`menu:${chapterKey}`);
+  }
 
   pyqArea.classList.add("hidden");
   cardsArea.classList.remove("hidden");
+
   cardsArea.innerHTML = "";
   questionsArea.innerHTML = "";
   searchInput.value = "";
@@ -231,90 +391,166 @@ function renderChapterMenu(chapterKey) {
   backBtn.classList.remove("hidden");
 
   const menuCards = [
-  {
-    title: "📅 PYQs",
-    desc: "Previous Year Questions",
-    action: `pyq:${chapterKey}`
+    {
+      title: "📅 PYQs",
+      desc: "Previous Year Questions",
+      action: `pyq:${chapterKey}`
+    }
+  ];
+
+  /*
+    Poems do not show Oral Comprehension.
+    Normal chapters can show Oral Comprehension if available.
+  */
+  if (!chapter.isPoem && chapter.oral) {
+    menuCards.push({
+      title: "🎤 Oral Comprehension",
+      desc: "NCERT Oral Questions",
+      action: `oral:${chapterKey}`
+    });
   }
-];
 
-if (chapter.oral) {
-  menuCards.push({
-    title: "🎤 Oral Comprehension",
-    desc: "NCERT Oral Questions",
-    action: `oral:${chapterKey}`
+  if (chapter.exercise) {
+    menuCards.push({
+      title: "📝 Exercise Questions",
+      desc: "NCERT Exercise Questions",
+      action: `exercise:${chapterKey}`
+    });
+  } else {
+    menuCards.push({
+      title: "📝 Exercise Questions",
+      desc: "Coming Soon",
+      soon: true
+    });
+  }
+
+  menuCards.forEach((card) => {
+    createCard(card);
   });
 }
 
-if (chapter.exercise) {
-  menuCards.push({
-    title: "📝 Exercise Questions",
-    desc: "NCERT Back Exercise",
-    action: `exercise:${chapterKey}`
-  });
-}
-
-menuCards.forEach(card => createCard(card));
-}
+/* =========================================================
+   CARD CREATION
+========================================================= */
 
 function createCard(card) {
-  const div = document.createElement("div");
-  div.className = "card" + (card.soon ? " soon" : "");
+  const cardElement = document.createElement("div");
 
-  div.innerHTML = `
+  cardElement.className = `card${card.soon ? " soon" : ""}`;
+
+  cardElement.innerHTML = `
     <div class="card-content">
       <h2>${card.title}</h2>
       <p>${card.desc}</p>
-      <div class="enter">${card.soon ? "🚧 Coming Soon" : "ENTER →"}</div>
+
+      <div class="enter">
+        ${card.soon ? "🚧 Coming Soon" : "ENTER →"}
+      </div>
     </div>
   `;
 
-  if (!card.soon) {
-    div.onclick = () => handleAction(card.action);
+  if (!card.soon && card.action) {
+    cardElement.onclick = () => {
+      handleAction(card.action);
+    };
   }
 
-  cardsArea.appendChild(div);
+  cardsArea.appendChild(cardElement);
 }
+
+/* =========================================================
+   CARD ACTIONS
+========================================================= */
 
 function handleAction(action) {
+  if (!action) return;
+
   if (action.startsWith("menu:")) {
-    renderChapterMenu(action.split(":")[1]);
-  } else if (action.startsWith("pyq:")) {
-    openChapterData(action.split(":")[1], "pyq");
-  } else if (action.startsWith("oral:")) {
-    openChapterData(action.split(":")[1], "oral");
-  } else if (action.startsWith("exercise:")) {
-    openChapterData(action.split(":")[1], "exercise");
-  } else {
-    renderPage(action);
+    const chapterKey = action.split(":")[1];
+    renderChapterMenu(chapterKey);
+    return;
   }
+
+  if (action.startsWith("pyq:")) {
+    const chapterKey = action.split(":")[1];
+    openChapterData(chapterKey, "pyq");
+    return;
+  }
+
+  if (action.startsWith("oral:")) {
+    const chapterKey = action.split(":")[1];
+    openChapterData(chapterKey, "oral");
+    return;
+  }
+
+  if (action.startsWith("exercise:")) {
+    const chapterKey = action.split(":")[1];
+    openChapterData(chapterKey, "exercise");
+    return;
+  }
+
+  renderPage(action);
 }
 
-backBtn.onclick = () => {
-  if (pageStack.length > 1) {
-    pageStack.pop();
-    const previous = pageStack.pop();
+/* =========================================================
+   BACK BUTTON
+========================================================= */
 
-    if (previous.startsWith("menu:")) {
-      renderChapterMenu(previous.split(":")[1]);
-    } else {
-      renderPage(previous, false);
-    }
+backBtn.onclick = () => {
+  if (pageStack.length <= 1) return;
+
+  pageStack.pop();
+
+  const previousPage = pageStack[pageStack.length - 1];
+
+  if (!previousPage) {
+    pageStack = [];
+    renderPage("home", true);
+    return;
   }
+
+  if (previousPage.startsWith("menu:")) {
+    const chapterKey = previousPage.split(":")[1];
+    renderChapterMenu(chapterKey, false);
+    return;
+  }
+
+  if (
+    previousPage.startsWith("pyq:") ||
+    previousPage.startsWith("oral:") ||
+    previousPage.startsWith("exercise:")
+  ) {
+    const [section, chapterKey] = previousPage.split(":");
+    openChapterData(chapterKey, section, false);
+    return;
+  }
+
+  renderPage(previousPage, false);
 };
 
-async function openChapterData(chapterKey, section) {
-  const chapter = chapterData[chapterKey];
-  if (!chapter) return;
+/* =========================================================
+   LOAD JSON DATA
+========================================================= */
 
-  pageStack.push(`${section}:${chapterKey}`);
+async function openChapterData(chapterKey, section, push = true) {
+  const chapter = chapterData[chapterKey];
+
+  if (!chapter) {
+    questionsArea.innerHTML = "<p>Chapter not found.</p>";
+    return;
+  }
+
+  if (push) {
+    pageStack.push(`${section}:${chapterKey}`);
+  }
 
   cardsArea.classList.add("hidden");
   pyqArea.classList.remove("hidden");
   backBtn.classList.remove("hidden");
+
   searchInput.value = "";
 
-  let fileName = chapter.base;
+  let fileName = "";
   let title = "";
   let placeholder = "";
 
@@ -341,20 +577,45 @@ async function openChapterData(chapterKey, section) {
 
   pageSubtitle.textContent = title;
   searchInput.placeholder = placeholder;
+  questionsArea.innerHTML = "<p>Loading questions...</p>";
 
   try {
-    const res = await fetch(`/data/class10/english/first-flight/${fileName}`);
-    const data = await res.json();
+    const response = await fetch(
+      `/data/class10/english/first-flight/${fileName}`
+    );
+
+    if (!response.ok) {
+      throw new Error(
+        `Could not load ${fileName}. HTTP status: ${response.status}`
+      );
+    }
+
+    const data = await response.json();
+
+    if (!Array.isArray(data)) {
+      throw new Error(`${fileName} must contain a JSON array.`);
+    }
 
     if (section === "pyq") {
       currentQuestions = data;
     } else {
-      currentQuestions = data.map(item => ({
-        year: item.page || item.section || title,
-        marks: "NCERT",
-        type: section === "oral" ? "Oral Comprehension" : "Exercise",
-        question: item.question,
-        answer: item.answer,
+      currentQuestions = data.map((item) => ({
+        year:
+          item.page ||
+          item.section ||
+          (section === "oral"
+            ? "Oral Comprehension"
+            : "Exercise Questions"),
+
+        marks: item.marks || "NCERT",
+
+        type:
+          section === "oral"
+            ? "Oral Comprehension"
+            : "Exercise",
+
+        question: item.question || "",
+        answer: item.answer || "",
         source: item.page || item.section || "NCERT",
         verified: true
       }));
@@ -362,33 +623,50 @@ async function openChapterData(chapterKey, section) {
 
     renderQuestions(currentTitlePrefix);
   } catch (error) {
-    questionsArea.innerHTML = `<p>Failed to load ${chapter.title} ${section}.</p>`;
     console.error(error);
+
+    questionsArea.innerHTML = `
+      <p style="text-align:center;">
+        Failed to load ${chapter.title} ${section} questions.
+      </p>
+    `;
   }
 }
 
+/* =========================================================
+   QUESTION RENDERING
+========================================================= */
+
 function renderQuestions(titlePrefix = currentTitlePrefix) {
-  const search = searchInput.value.toLowerCase();
+  const searchText = searchInput.value.trim().toLowerCase();
 
-  const filtered = currentQuestions.filter(q =>
-    JSON.stringify(q).toLowerCase().includes(search)
-  );
+  const filteredQuestions = currentQuestions.filter((question) => {
+    return JSON.stringify(question)
+      .toLowerCase()
+      .includes(searchText);
+  });
 
-  const grouped = {};
+  const groupedQuestions = {};
 
-  filtered.forEach(q => {
-    const groupName = q.year || "Questions";
-    if (!grouped[groupName]) grouped[groupName] = [];
-    grouped[groupName].push(q);
+  filteredQuestions.forEach((question) => {
+    const groupName = question.year || "Questions";
+
+    if (!groupedQuestions[groupName]) {
+      groupedQuestions[groupName] = [];
+    }
+
+    groupedQuestions[groupName].push(question);
   });
 
   questionsArea.innerHTML = "";
 
-  const groups = Object.keys(grouped).sort((a, b) => {
-    const numA = Number(a);
-    const numB = Number(b);
+  const groups = Object.keys(groupedQuestions).sort((a, b) => {
+    const numberA = Number(a);
+    const numberB = Number(b);
 
-    if (!isNaN(numA) && !isNaN(numB)) return numB - numA;
+    if (!Number.isNaN(numberA) && !Number.isNaN(numberB)) {
+      return numberB - numberA;
+    }
 
     return String(a).localeCompare(String(b), undefined, {
       numeric: true,
@@ -396,120 +674,284 @@ function renderQuestions(titlePrefix = currentTitlePrefix) {
     });
   });
 
-  groups.forEach(year => {
-    questionsArea.innerHTML += `<h2 class="year-title">${titlePrefix} [${year}]</h2>`;
+  groups.forEach((groupName) => {
+    const yearHeading = document.createElement("h2");
+    yearHeading.className = "year-title";
+    yearHeading.textContent = `${titlePrefix} [${groupName}]`;
 
-    grouped[year].forEach((q, index) => {
-      const cleanYear = String(year).replace(/\s/g, "-").replace(/[^\w-]/g, "");
-      const id = `ans-${cleanYear}-${index}`;
+    questionsArea.appendChild(yearHeading);
 
-      if (q.type === "Extract Based") {
-        questionsArea.innerHTML += `
-          <div class="question-card">
-            <div class="meta">${q.type} • ${q.marks} Marks • Source: ${q.source}</div>
+    groupedQuestions[groupName].forEach((question, questionIndex) => {
+      const cleanGroupName = String(groupName)
+        .replace(/\s+/g, "-")
+        .replace(/[^\w-]/g, "");
 
-            <div class="extract-box">
-              <b>Read the extract:</b><br><br>
-              ${q.extract}
-            </div>
+      const answerId = `answer-${cleanGroupName}-${questionIndex}`;
 
-            ${q.subQuestions.map((sq, i) => `
-              <div class="sub-question">
-                <div class="question"><b>${sq.no}</b> ${sq.question}</div>
-
-                ${sq.options ? `
-                  <div class="options">
-                    <p>A. ${sq.options.A}</p>
-                    <p>B. ${sq.options.B}</p>
-                    <p>C. ${sq.options.C}</p>
-                    <p>D. ${sq.options.D}</p>
-                  </div>
-                ` : ""}
-
-                <button class="view" onclick="toggleAnswer('${id}-${i}', this)">👁 View Answer</button>
-
-                <div class="answer" id="${id}-${i}">
-                  ${sq.correctOption ? `<b>Correct Option:</b> ${sq.correctOption}<br><br>` : ""}
-                  <b>Answer:</b><br>${sq.answer}
-                </div>
-              </div>
-            `).join("")}
-          </div>
-        `;
+      if (
+        question.type === "Extract Based" &&
+        Array.isArray(question.subQuestions)
+      ) {
+        renderExtractQuestion(question, answerId);
       } else {
-        questionsArea.innerHTML += `
-          <div class="question-card">
-            <div class="meta">${q.type} • ${q.marks} Marks • Source: ${q.source}</div>
-            <div class="question"><b>Q.</b> ${q.question}</div>
-
-            <button class="view" onclick="toggleAnswer('${id}', this)">👁 View Answer</button>
-
-            <div class="answer" id="${id}">
-              <b>Answer:</b><br>${q.answer}
-            </div>
-          </div>
-        `;
+        renderNormalQuestion(question, answerId);
       }
     });
   });
 
-  if (filtered.length === 0) {
-    questionsArea.innerHTML = "<p>No question found.</p>";
+  if (filteredQuestions.length === 0) {
+    questionsArea.innerHTML = `
+      <p style="text-align:center;">
+        No questions found.
+      </p>
+    `;
   }
 }
 
-function toggleAnswer(id, btn) {
-  const ans = document.getElementById(id);
-  if (!ans) return;
+/* =========================================================
+   NORMAL QUESTIONS
+========================================================= */
 
-  ans.classList.toggle("show");
-  btn.textContent = ans.classList.contains("show") ? "🙈 Hide Answer" : "👁 View Answer";
+function renderNormalQuestion(question, answerId) {
+  const card = document.createElement("div");
+  card.className = "question-card";
+
+  const optionsHtml = question.options
+    ? `
+      <div class="options">
+        ${Object.entries(question.options)
+          .map(([optionLetter, optionText]) => {
+            return `<p>${optionLetter}. ${optionText}</p>`;
+          })
+          .join("")}
+      </div>
+    `
+    : "";
+
+  card.innerHTML = `
+    <div class="meta">
+      ${question.type || "Question"}
+      • ${question.marks || "NCERT"} Marks
+      • Source: ${question.source || "NCERT"}
+    </div>
+
+    <div class="question">
+      <b>Q.</b> ${question.question || ""}
+    </div>
+
+    ${optionsHtml}
+
+    <button
+      class="view"
+      onclick="toggleAnswer('${answerId}', this)"
+    >
+      👁 View Answer
+    </button>
+
+    <div class="answer" id="${answerId}">
+      ${
+        question.correctOption
+          ? `<b>Correct Option:</b> ${question.correctOption}<br><br>`
+          : ""
+      }
+
+      <b>Answer:</b><br>
+      ${formatText(question.answer || "")}
+    </div>
+  `;
+
+  questionsArea.appendChild(card);
 }
 
-searchInput.addEventListener("input", () => renderQuestions(currentTitlePrefix));
+/* =========================================================
+   EXTRACT QUESTIONS
+========================================================= */
+
+function renderExtractQuestion(question, answerId) {
+  const card = document.createElement("div");
+  card.className = "question-card";
+
+  const subQuestionsHtml = question.subQuestions
+    .map((subQuestion, index) => {
+      const subAnswerId = `${answerId}-${index}`;
+
+      const optionsHtml = subQuestion.options
+        ? `
+          <div class="options">
+            ${Object.entries(subQuestion.options)
+              .map(([optionLetter, optionText]) => {
+                return `<p>${optionLetter}. ${optionText}</p>`;
+              })
+              .join("")}
+          </div>
+        `
+        : "";
+
+      return `
+        <div class="sub-question">
+          <div class="question">
+            <b>${subQuestion.no || `(${index + 1})`}</b>
+            ${subQuestion.question || ""}
+          </div>
+
+          ${optionsHtml}
+
+          <button
+            class="view"
+            onclick="toggleAnswer('${subAnswerId}', this)"
+          >
+            👁 View Answer
+          </button>
+
+          <div class="answer" id="${subAnswerId}">
+            ${
+              subQuestion.correctOption
+                ? `<b>Correct Option:</b> ${subQuestion.correctOption}<br><br>`
+                : ""
+            }
+
+            <b>Answer:</b><br>
+            ${formatText(subQuestion.answer || "")}
+          </div>
+        </div>
+      `;
+    })
+    .join("");
+
+  card.innerHTML = `
+    <div class="meta">
+      ${question.type}
+      • ${question.marks || 5} Marks
+      • Source: ${question.source || "PYQ"}
+    </div>
+
+    <div class="extract-box">
+      <b>Read the extract:</b><br><br>
+      ${formatText(question.extract || "")}
+    </div>
+
+    ${subQuestionsHtml}
+  `;
+
+  questionsArea.appendChild(card);
+}
+
+/* =========================================================
+   ANSWER TOGGLE
+========================================================= */
+
+function toggleAnswer(answerId, button) {
+  const answerElement = document.getElementById(answerId);
+
+  if (!answerElement) return;
+
+  answerElement.classList.toggle("show");
+
+  if (answerElement.classList.contains("show")) {
+    button.textContent = "🙈 Hide Answer";
+  } else {
+    button.textContent = "👁 View Answer";
+  }
+}
+
+window.toggleAnswer = toggleAnswer;
+
+/* =========================================================
+   FORMAT ANSWER TEXT
+========================================================= */
+
+function formatText(text) {
+  return String(text).replace(/\n/g, "<br>");
+}
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+searchInput.addEventListener("input", () => {
+  renderQuestions(currentTitlePrefix);
+});
+
+/* =========================================================
+   OPEN HOME PAGE
+========================================================= */
 
 renderPage("home", true);
 
-/* particles */
-const canvas = document.getElementById("particles");
-const ctx = canvas.getContext("2d");
-let particles = [];
+/* =========================================================
+   PARTICLE BACKGROUND
+========================================================= */
 
-function resizeCanvas() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+const particlesCanvas = document.getElementById("particles");
+
+if (particlesCanvas) {
+  const particleContext = particlesCanvas.getContext("2d");
+
+  const particles = [];
+
+  function resizeParticlesCanvas() {
+    particlesCanvas.width = window.innerWidth;
+    particlesCanvas.height = window.innerHeight;
+  }
+
+  resizeParticlesCanvas();
+
+  window.addEventListener("resize", resizeParticlesCanvas);
+
+  for (let index = 0; index < 90; index++) {
+    particles.push({
+      x: Math.random() * window.innerWidth,
+      y: Math.random() * window.innerHeight,
+      radius: Math.random() * 2 + 1,
+      speedX: (Math.random() - 0.5) * 0.6,
+      speedY: (Math.random() - 0.5) * 0.6
+    });
+  }
+
+  function animateParticles() {
+    particleContext.clearRect(
+      0,
+      0,
+      particlesCanvas.width,
+      particlesCanvas.height
+    );
+
+    particles.forEach((particle) => {
+      particle.x += particle.speedX;
+      particle.y += particle.speedY;
+
+      if (
+        particle.x < 0 ||
+        particle.x > particlesCanvas.width
+      ) {
+        particle.speedX *= -1;
+      }
+
+      if (
+        particle.y < 0 ||
+        particle.y > particlesCanvas.height
+      ) {
+        particle.speedY *= -1;
+      }
+
+      particleContext.beginPath();
+
+      particleContext.arc(
+        particle.x,
+        particle.y,
+        particle.radius,
+        0,
+        Math.PI * 2
+      );
+
+      particleContext.fillStyle =
+        "rgba(103, 232, 249, 0.8)";
+
+      particleContext.fill();
+    });
+
+    requestAnimationFrame(animateParticles);
+  }
+
+  animateParticles();
 }
-
-resizeCanvas();
-window.addEventListener("resize", resizeCanvas);
-
-for (let i = 0; i < 90; i++) {
-  particles.push({
-    x: Math.random() * window.innerWidth,
-    y: Math.random() * window.innerHeight,
-    r: Math.random() * 2 + 1,
-    dx: (Math.random() - 0.5) * 0.6,
-    dy: (Math.random() - 0.5) * 0.6
-  });
-}
-
-function animateParticles() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  particles.forEach(p => {
-    p.x += p.dx;
-    p.y += p.dy;
-
-    if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
-    if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
-
-    ctx.beginPath();
-    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-    ctx.fillStyle = "rgba(103,232,249,0.8)";
-    ctx.fill();
-  });
-
-  requestAnimationFrame(animateParticles);
-}
-
-animateParticles();
