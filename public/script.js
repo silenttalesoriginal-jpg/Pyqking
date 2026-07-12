@@ -69,23 +69,127 @@ const pages = {
   },
 
   firstFlight: {
-    subtitle: "First Flight Chapters",
-    cards: [
-      { title: "Ch-1 A Letter to God", desc: "PYQs, Oral Comprehension & Exercises", action: "menu:letterToGod" },
-      { title: "Ch-2 Nelson Mandela", desc: "PYQs, Oral Comprehension & Exercises", action: "menu:nelsonMandela" },
-      {
-        title: "Ch-3 Two Stories About Flying",
-        desc: "PYQs Available",
-        action: "menu:twoStoriesAboutFlying"
-      },
-      { title: "Ch-4 From the Diary of Anne Frank", desc: "Coming Soon", soon: true },
-      { title: "Ch-5 Glimpses of India", desc: "Coming Soon", soon: true },
-      { title: "Ch-6 Mijbil the Otter", desc: "Coming Soon", soon: true },
-      { title: "Ch-7 Madam Rides the Bus", desc: "Coming Soon", soon: true },
-      { title: "Ch-8 The Sermon at Benares", desc: "Coming Soon", soon: true },
-      { title: "Ch-9 The Proposal", desc: "Coming Soon", soon: true }
-    ]
-  }
+  subtitle: "First Flight",
+  cards: [
+    {
+      title: "📘 Chapters",
+      desc: "All prose chapters from First Flight",
+      action: "firstFlightChapters"
+    },
+    {
+      title: "📜 Poems",
+      desc: "All poems from First Flight",
+      action: "firstFlightPoems"
+    }
+  ]
+},
+
+firstFlightChapters: {
+  subtitle: "First Flight - Chapters",
+  cards: [
+    {
+      title: "Ch-1 A Letter to God",
+      desc: "PYQs, Oral Comprehension & Exercises",
+      action: "menu:letterToGod"
+    },
+    {
+      title: "Ch-2 Nelson Mandela",
+      desc: "PYQs, Oral Comprehension & Exercises",
+      action: "menu:nelsonMandela"
+    },
+    {
+      title: "Ch-3 Two Stories About Flying",
+      desc: "PYQs & Exercise Questions",
+      action: "menu:twoStoriesAboutFlying"
+    },
+    {
+      title: "Ch-4 From the Diary of Anne Frank",
+      desc: "Coming Soon",
+      soon: true
+    },
+    {
+      title: "Ch-5 Glimpses of India",
+      desc: "Coming Soon",
+      soon: true
+    },
+    {
+      title: "Ch-6 Mijbil the Otter",
+      desc: "Coming Soon",
+      soon: true
+    },
+    {
+      title: "Ch-7 Madam Rides the Bus",
+      desc: "Coming Soon",
+      soon: true
+    },
+    {
+      title: "Ch-8 The Sermon at Benares",
+      desc: "Coming Soon",
+      soon: true
+    },
+    {
+      title: "Ch-9 The Proposal",
+      desc: "Coming Soon",
+      soon: true
+    }
+  ]
+},
+
+firstFlightPoems: {
+  subtitle: "First Flight - Poems",
+  cards: [
+    {
+      title: "Poem 1 - Dust of Snow",
+      desc: "Coming Soon",
+      soon: true
+    },
+    {
+      title: "Poem 2 - Fire and Ice",
+      desc: "Coming Soon",
+      soon: true
+    },
+    {
+      title: "Poem 3 - A Tiger in the Zoo",
+      desc: "Coming Soon",
+      soon: true
+    },
+    {
+      title: "Poem 4 - How to Tell Wild Animals",
+      desc: "Coming Soon",
+      soon: true
+    },
+    {
+      title: "Poem 5 - The Ball Poem",
+      desc: "Coming Soon",
+      soon: true
+    },
+    {
+      title: "Poem 6 - Amanda!",
+      desc: "Coming Soon",
+      soon: true
+    },
+    {
+      title: "Poem 7 - The Trees",
+      desc: "Coming Soon",
+      soon: true
+    },
+    {
+      title: "Poem 8 - Fog",
+      desc: "Coming Soon",
+      soon: true
+    },
+    {
+      title: "Poem 9 - The Tale of Custard the Dragon",
+      desc: "Coming Soon",
+      soon: true
+    },
+    {
+      title: "Poem 10 - For Anne Gregory",
+      desc: "Coming Soon",
+      soon: true
+    }
+  ]
+}
 };
 
 function renderPage(pageName, push = true) {
