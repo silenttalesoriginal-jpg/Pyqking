@@ -24,7 +24,7 @@ const chapterData = {
   },
 
   nelsonMandela: {
-    title: "Nelson Mandela",
+    title: "Nelson Mandela: Long Walk to Freedom",
     base: "nelson-mandela",
     oral: true,
     exercise: true,
@@ -39,36 +39,12 @@ const chapterData = {
     isPoem: false
   },
 
-  dustOfSnow: {
-    title: "Dust of Snow",
-    base: "dust-of-snow",
+  glimpsesOfIndia: {
+    title: "Glimpses of India",
+    base: "glimpses-of-india",
     oral: false,
     exercise: false,
-    isPoem: true
-  },
-
-  fireAndIce: {
-    title: "Fire and Ice",
-    base: "fire-and-ice",
-    oral: false,
-    exercise: false,
-    isPoem: true
-  },
-
-  tigerInTheZoo: {
-    title: "A Tiger in the Zoo",
-    base: "a-tiger-in-the-zoo",
-    oral: false,
-    exercise: false,
-    isPoem: true
-  },
-
-  howToTellWildAnimals: {
-    title: "How to Tell Wild Animals",
-    base: "how-to-tell-wild-animals",
-    oral: false,
-    exercise: false,
-    isPoem: true
+    isPoem: false
   },
 
   theBallPoem: {
@@ -76,46 +52,6 @@ const chapterData = {
     base: "the-ball-poem",
     oral: false,
     exercise: true,
-    isPoem: true
-  },
-
-  amanda: {
-    title: "Amanda!",
-    base: "amanda",
-    oral: false,
-    exercise: false,
-    isPoem: true
-  },
-
-  theTrees: {
-    title: "The Trees",
-    base: "the-trees",
-    oral: false,
-    exercise: false,
-    isPoem: true
-  },
-
-  fog: {
-    title: "Fog",
-    base: "fog",
-    oral: false,
-    exercise: false,
-    isPoem: true
-  },
-
-  custardTheDragon: {
-    title: "The Tale of Custard the Dragon",
-    base: "the-tale-of-custard-the-dragon",
-    oral: false,
-    exercise: false,
-    isPoem: true
-  },
-
-  forAnneGregory: {
-    title: "For Anne Gregory",
-    base: "for-anne-gregory",
-    oral: false,
-    exercise: false,
     isPoem: true
   }
 };
@@ -225,12 +161,12 @@ const pages = {
     cards: [
       {
         title: "Ch-1 A Letter to God",
-        desc: "PYQs, Oral Comprehension & Exercises",
+        desc: "PYQs, Oral Comprehension & Exercise Questions",
         action: "menu:letterToGod"
       },
       {
         title: "Ch-2 Nelson Mandela",
-        desc: "PYQs, Oral Comprehension & Exercises",
+        desc: "PYQs, Oral Comprehension & Exercise Questions",
         action: "menu:nelsonMandela"
       },
       {
@@ -245,8 +181,8 @@ const pages = {
       },
       {
         title: "Ch-5 Glimpses of India",
-        desc: "Coming Soon",
-        soon: true
+        desc: "Previous Year Questions",
+        action: "menu:glimpsesOfIndia"
       },
       {
         title: "Ch-6 Mijbil the Otter",
@@ -272,60 +208,60 @@ const pages = {
   },
 
   firstFlightPoems: {
-     subtitle: "First Flight - Poems",
-     cards: [
-       {
-         title: "Poem 1 - Dust of Snow",
-         desc: "Coming Soon",
-         soon: true
-       },
-       {
-         title: "Poem 2 - Fire and Ice",
-         desc: "Coming Soon",
-         soon: true
-       },
-       {
-         title: "Poem 3 - A Tiger in the Zoo",
-         desc: "Coming Soon",
-         soon: true
-       },
-       {
-         title: "Poem 4 - How to Tell Wild Animals",
-         desc: "Coming Soon",
-         soon: true
-       },
-       {
-         title: "Poem 5 - The Ball Poem",
-         desc: "PYQs & Exercise Questions",
-         action: "menu:theBallPoem"
-       },
-       {
-         title: "Poem 6 - Amanda!",
-         desc: "Coming Soon",
-         soon: true
-       },
-       {
-         title: "Poem 7 - The Trees",
-         desc: "Coming Soon",
-         soon: true
-       },
-       {
-         title: "Poem 8 - Fog",
-         desc: "Coming Soon",
-         soon: true
-       },
-       {
-         title: "Poem 9 - The Tale of Custard the Dragon",
-         desc: "Coming Soon",
-         soon: true
-       },
-       {
-         title: "Poem 10 - For Anne Gregory",
-         desc: "Coming Soon",
-         soon: true
-       }
-     ]
-   },
+    subtitle: "First Flight - Poems",
+    cards: [
+      {
+        title: "Poem 1 - Dust of Snow",
+        desc: "Coming Soon",
+        soon: true
+      },
+      {
+        title: "Poem 2 - Fire and Ice",
+        desc: "Coming Soon",
+        soon: true
+      },
+      {
+        title: "Poem 3 - A Tiger in the Zoo",
+        desc: "Coming Soon",
+        soon: true
+      },
+      {
+        title: "Poem 4 - How to Tell Wild Animals",
+        desc: "Coming Soon",
+        soon: true
+      },
+      {
+        title: "Poem 5 - The Ball Poem",
+        desc: "PYQs & Exercise Questions",
+        action: "menu:theBallPoem"
+      },
+      {
+        title: "Poem 6 - Amanda!",
+        desc: "Coming Soon",
+        soon: true
+      },
+      {
+        title: "Poem 7 - The Trees",
+        desc: "Coming Soon",
+        soon: true
+      },
+      {
+        title: "Poem 8 - Fog",
+        desc: "Coming Soon",
+        soon: true
+      },
+      {
+        title: "Poem 9 - The Tale of Custard the Dragon",
+        desc: "Coming Soon",
+        soon: true
+      },
+      {
+        title: "Poem 10 - For Anne Gregory",
+        desc: "Coming Soon",
+        soon: true
+      }
+    ]
+  }
 };
 
 /* =========================================================
@@ -348,16 +284,22 @@ function renderPage(pageName, push = true) {
 
   if (!page) {
     pageSubtitle.textContent = "Page not found";
+
     cardsArea.innerHTML = `
       <p style="text-align:center;">
         Page not found.
       </p>
     `;
+
     return;
   }
 
   pageSubtitle.textContent = page.subtitle;
-  backBtn.classList.toggle("hidden", pageStack.length <= 1);
+
+  backBtn.classList.toggle(
+    "hidden",
+    pageStack.length <= 1
+  );
 
   page.cards.forEach((card) => {
     createCard(card);
@@ -398,10 +340,6 @@ function renderChapterMenu(chapterKey, push = true) {
     }
   ];
 
-  /*
-    Poems do not show Oral Comprehension.
-    Normal chapters can show Oral Comprehension if available.
-  */
   if (!chapter.isPoem && chapter.oral) {
     menuCards.push({
       title: "🎤 Oral Comprehension",
@@ -415,12 +353,6 @@ function renderChapterMenu(chapterKey, push = true) {
       title: "📝 Exercise Questions",
       desc: "NCERT Exercise Questions",
       action: `exercise:${chapterKey}`
-    });
-  } else {
-    menuCards.push({
-      title: "📝 Exercise Questions",
-      desc: "Coming Soon",
-      soon: true
     });
   }
 
@@ -436,23 +368,29 @@ function renderChapterMenu(chapterKey, push = true) {
 function createCard(card) {
   const cardElement = document.createElement("div");
 
-  cardElement.className = `card${card.soon ? " soon" : ""}`;
+  cardElement.className =
+    `card${card.soon ? " soon" : ""}`;
 
   cardElement.innerHTML = `
     <div class="card-content">
       <h2>${card.title}</h2>
+
       <p>${card.desc}</p>
 
       <div class="enter">
-        ${card.soon ? "🚧 Coming Soon" : "ENTER →"}
+        ${
+          card.soon
+            ? "🚧 Coming Soon"
+            : "ENTER →"
+        }
       </div>
     </div>
   `;
 
   if (!card.soon && card.action) {
-    cardElement.onclick = () => {
+    cardElement.addEventListener("click", () => {
       handleAction(card.action);
-    };
+    });
   }
 
   cardsArea.appendChild(cardElement);
@@ -467,24 +405,28 @@ function handleAction(action) {
 
   if (action.startsWith("menu:")) {
     const chapterKey = action.split(":")[1];
+
     renderChapterMenu(chapterKey);
     return;
   }
 
   if (action.startsWith("pyq:")) {
     const chapterKey = action.split(":")[1];
+
     openChapterData(chapterKey, "pyq");
     return;
   }
 
   if (action.startsWith("oral:")) {
     const chapterKey = action.split(":")[1];
+
     openChapterData(chapterKey, "oral");
     return;
   }
 
   if (action.startsWith("exercise:")) {
     const chapterKey = action.split(":")[1];
+
     openChapterData(chapterKey, "exercise");
     return;
   }
@@ -496,12 +438,13 @@ function handleAction(action) {
    BACK BUTTON
 ========================================================= */
 
-backBtn.onclick = () => {
+backBtn.addEventListener("click", () => {
   if (pageStack.length <= 1) return;
 
   pageStack.pop();
 
-  const previousPage = pageStack[pageStack.length - 1];
+  const previousPage =
+    pageStack[pageStack.length - 1];
 
   if (!previousPage) {
     pageStack = [];
@@ -510,7 +453,9 @@ backBtn.onclick = () => {
   }
 
   if (previousPage.startsWith("menu:")) {
-    const chapterKey = previousPage.split(":")[1];
+    const chapterKey =
+      previousPage.split(":")[1];
+
     renderChapterMenu(chapterKey, false);
     return;
   }
@@ -520,23 +465,36 @@ backBtn.onclick = () => {
     previousPage.startsWith("oral:") ||
     previousPage.startsWith("exercise:")
   ) {
-    const [section, chapterKey] = previousPage.split(":");
-    openChapterData(chapterKey, section, false);
+    const [section, chapterKey] =
+      previousPage.split(":");
+
+    openChapterData(
+      chapterKey,
+      section,
+      false
+    );
+
     return;
   }
 
   renderPage(previousPage, false);
-};
+});
 
 /* =========================================================
    LOAD JSON DATA
 ========================================================= */
 
-async function openChapterData(chapterKey, section, push = true) {
+async function openChapterData(
+  chapterKey,
+  section,
+  push = true
+) {
   const chapter = chapterData[chapterKey];
 
   if (!chapter) {
-    questionsArea.innerHTML = "<p>Chapter not found.</p>";
+    questionsArea.innerHTML =
+      "<p>Chapter not found.</p>";
+
     return;
   }
 
@@ -556,28 +514,52 @@ async function openChapterData(chapterKey, section, push = true) {
 
   if (section === "pyq") {
     fileName = `${chapter.base}.json`;
-    title = `${chapter.title} - Previous Year Questions`;
+
+    title =
+      `${chapter.title} - Previous Year Questions`;
+
     placeholder = "Search PYQs...";
-    currentTitlePrefix = "📅 Previous Year Questions";
+
+    currentTitlePrefix =
+      "📅 Previous Year Questions";
   }
 
   if (section === "oral") {
-    fileName = `${chapter.base}-oral.json`;
-    title = `${chapter.title} - Oral Comprehension`;
-    placeholder = "Search oral comprehension...";
-    currentTitlePrefix = "🎤 Oral Comprehension";
+    fileName =
+      `${chapter.base}-oral.json`;
+
+    title =
+      `${chapter.title} - Oral Comprehension`;
+
+    placeholder =
+      "Search oral comprehension...";
+
+    currentTitlePrefix =
+      "🎤 Oral Comprehension";
   }
 
   if (section === "exercise") {
-    fileName = `${chapter.base}-exercise.json`;
-    title = `${chapter.title} - Exercise Questions`;
-    placeholder = "Search exercise questions...";
-    currentTitlePrefix = "📝 Exercise Questions";
+    fileName =
+      `${chapter.base}-exercise.json`;
+
+    title =
+      `${chapter.title} - Exercise Questions`;
+
+    placeholder =
+      "Search exercise questions...";
+
+    currentTitlePrefix =
+      "📝 Exercise Questions";
   }
 
   pageSubtitle.textContent = title;
   searchInput.placeholder = placeholder;
-  questionsArea.innerHTML = "<p>Loading questions...</p>";
+
+  questionsArea.innerHTML = `
+    <p style="text-align:center;">
+      Loading questions...
+    </p>
+  `;
 
   try {
     const response = await fetch(
@@ -586,14 +568,16 @@ async function openChapterData(chapterKey, section, push = true) {
 
     if (!response.ok) {
       throw new Error(
-        `Could not load ${fileName}. HTTP status: ${response.status}`
+        `Could not load ${fileName}. Status: ${response.status}`
       );
     }
 
     const data = await response.json();
 
     if (!Array.isArray(data)) {
-      throw new Error(`${fileName} must contain a JSON array.`);
+      throw new Error(
+        `${fileName} must contain a JSON array.`
+      );
     }
 
     if (section === "pyq") {
@@ -603,9 +587,11 @@ async function openChapterData(chapterKey, section, push = true) {
         year:
           item.page ||
           item.section ||
-          (section === "oral"
-            ? "Oral Comprehension"
-            : "Exercise Questions"),
+          (
+            section === "oral"
+              ? "Oral Comprehension"
+              : "Exercise Questions"
+          ),
 
         marks: item.marks || "NCERT",
 
@@ -616,8 +602,7 @@ async function openChapterData(chapterKey, section, push = true) {
 
         question: item.question || "",
         answer: item.answer || "",
-        source: item.page || item.section || "NCERT",
-        verified: true
+        source: item.source || "NCERT"
       }));
     }
 
@@ -627,7 +612,15 @@ async function openChapterData(chapterKey, section, push = true) {
 
     questionsArea.innerHTML = `
       <p style="text-align:center;">
-        Failed to load ${chapter.title} ${section} questions.
+        Failed to load ${chapter.title} questions.
+      </p>
+
+      <p style="text-align:center;">
+        Check that this file exists:
+      </p>
+
+      <p style="text-align:center;">
+        <b>${fileName}</b>
       </p>
     `;
   }
@@ -637,19 +630,26 @@ async function openChapterData(chapterKey, section, push = true) {
    QUESTION RENDERING
 ========================================================= */
 
-function renderQuestions(titlePrefix = currentTitlePrefix) {
-  const searchText = searchInput.value.trim().toLowerCase();
+function renderQuestions(
+  titlePrefix = currentTitlePrefix
+) {
+  const searchText =
+    searchInput.value
+      .trim()
+      .toLowerCase();
 
-  const filteredQuestions = currentQuestions.filter((question) => {
-    return JSON.stringify(question)
-      .toLowerCase()
-      .includes(searchText);
-  });
+  const filteredQuestions =
+    currentQuestions.filter((question) => {
+      return JSON.stringify(question)
+        .toLowerCase()
+        .includes(searchText);
+    });
 
   const groupedQuestions = {};
 
   filteredQuestions.forEach((question) => {
-    const groupName = question.year || "Questions";
+    const groupName =
+      question.year || "Questions";
 
     if (!groupedQuestions[groupName]) {
       groupedQuestions[groupName] = [];
@@ -660,43 +660,67 @@ function renderQuestions(titlePrefix = currentTitlePrefix) {
 
   questionsArea.innerHTML = "";
 
-  const groups = Object.keys(groupedQuestions).sort((a, b) => {
-    const numberA = Number(a);
-    const numberB = Number(b);
+  const groups =
+    Object.keys(groupedQuestions).sort(
+      (a, b) => {
+        const numberA = Number(a);
+        const numberB = Number(b);
 
-    if (!Number.isNaN(numberA) && !Number.isNaN(numberB)) {
-      return numberB - numberA;
-    }
+        if (
+          !Number.isNaN(numberA) &&
+          !Number.isNaN(numberB)
+        ) {
+          return numberB - numberA;
+        }
 
-    return String(a).localeCompare(String(b), undefined, {
-      numeric: true,
-      sensitivity: "base"
-    });
-  });
+        return String(a).localeCompare(
+          String(b),
+          undefined,
+          {
+            numeric: true,
+            sensitivity: "base"
+          }
+        );
+      }
+    );
 
   groups.forEach((groupName) => {
-    const yearHeading = document.createElement("h2");
+    const yearHeading =
+      document.createElement("h2");
+
     yearHeading.className = "year-title";
-    yearHeading.textContent = `${titlePrefix} [${groupName}]`;
+
+    yearHeading.textContent =
+      `${titlePrefix} [${groupName}]`;
 
     questionsArea.appendChild(yearHeading);
 
-    groupedQuestions[groupName].forEach((question, questionIndex) => {
-      const cleanGroupName = String(groupName)
-        .replace(/\s+/g, "-")
-        .replace(/[^\w-]/g, "");
+    groupedQuestions[groupName].forEach(
+      (question, questionIndex) => {
+        const cleanGroupName =
+          String(groupName)
+            .replace(/\s+/g, "-")
+            .replace(/[^\w-]/g, "");
 
-      const answerId = `answer-${cleanGroupName}-${questionIndex}`;
+        const answerId =
+          `answer-${cleanGroupName}-${questionIndex}`;
 
-      if (
-        question.type === "Extract Based" &&
-        Array.isArray(question.subQuestions)
-      ) {
-        renderExtractQuestion(question, answerId);
-      } else {
-        renderNormalQuestion(question, answerId);
+        if (
+          question.type === "Extract Based" &&
+          Array.isArray(question.subQuestions)
+        ) {
+          renderExtractQuestion(
+            question,
+            answerId
+          );
+        } else {
+          renderNormalQuestion(
+            question,
+            answerId
+          );
+        }
       }
-    });
+    );
   });
 
   if (filteredQuestions.length === 0) {
@@ -709,21 +733,34 @@ function renderQuestions(titlePrefix = currentTitlePrefix) {
 }
 
 /* =========================================================
-   NORMAL QUESTIONS
+   NORMAL QUESTION
 ========================================================= */
 
-function renderNormalQuestion(question, answerId) {
-  const card = document.createElement("div");
+function renderNormalQuestion(
+  question,
+  answerId
+) {
+  const card =
+    document.createElement("div");
+
   card.className = "question-card";
 
   const optionsHtml = question.options
     ? `
       <div class="options">
-        ${Object.entries(question.options)
-          .map(([optionLetter, optionText]) => {
-            return `<p>${optionLetter}. ${optionText}</p>`;
-          })
-          .join("")}
+        ${
+          Object.entries(question.options)
+            .map(
+              ([optionLetter, optionText]) => {
+                return `
+                  <p>
+                    ${optionLetter}. ${optionText}
+                  </p>
+                `;
+              }
+            )
+            .join("")
+        }
       </div>
     `
     : "";
@@ -732,11 +769,12 @@ function renderNormalQuestion(question, answerId) {
     <div class="meta">
       ${question.type || "Question"}
       • ${question.marks || "NCERT"} Marks
-      • Source: ${question.source || "NCERT"}
+      • Source: ${question.source || "CBSE PYQ"}
     </div>
 
     <div class="question">
-      <b>Q.</b> ${question.question || ""}
+      <b>Q.</b>
+      ${formatText(question.question || "")}
     </div>
 
     ${optionsHtml}
@@ -748,14 +786,23 @@ function renderNormalQuestion(question, answerId) {
       👁 View Answer
     </button>
 
-    <div class="answer" id="${answerId}">
+    <div
+      class="answer"
+      id="${answerId}"
+    >
       ${
         question.correctOption
-          ? `<b>Correct Option:</b> ${question.correctOption}<br><br>`
+          ? `
+            <b>Correct Option:</b>
+            ${question.correctOption}
+            <br><br>
+          `
           : ""
       }
 
-      <b>Answer:</b><br>
+      <b>Answer:</b>
+      <br>
+
       ${formatText(question.answer || "")}
     </div>
   `;
@@ -764,69 +811,112 @@ function renderNormalQuestion(question, answerId) {
 }
 
 /* =========================================================
-   EXTRACT QUESTIONS
+   EXTRACT QUESTION
 ========================================================= */
 
-function renderExtractQuestion(question, answerId) {
-  const card = document.createElement("div");
+function renderExtractQuestion(
+  question,
+  answerId
+) {
+  const card =
+    document.createElement("div");
+
   card.className = "question-card";
 
-  const subQuestionsHtml = question.subQuestions
-    .map((subQuestion, index) => {
-      const subAnswerId = `${answerId}-${index}`;
+  const subQuestionsHtml =
+    question.subQuestions
+      .map((subQuestion, index) => {
+        const subAnswerId =
+          `${answerId}-${index}`;
 
-      const optionsHtml = subQuestion.options
-        ? `
-          <div class="options">
-            ${Object.entries(subQuestion.options)
-              .map(([optionLetter, optionText]) => {
-                return `<p>${optionLetter}. ${optionText}</p>`;
-              })
-              .join("")}
+        const optionsHtml =
+          subQuestion.options
+            ? `
+              <div class="options">
+                ${
+                  Object.entries(
+                    subQuestion.options
+                  )
+                    .map(
+                      ([
+                        optionLetter,
+                        optionText
+                      ]) => {
+                        return `
+                          <p>
+                            ${optionLetter}.
+                            ${optionText}
+                          </p>
+                        `;
+                      }
+                    )
+                    .join("")
+                }
+              </div>
+            `
+            : "";
+
+        return `
+          <div class="sub-question">
+            <div class="question">
+              <b>
+                ${
+                  subQuestion.no ||
+                  `(${index + 1})`
+                }
+              </b>
+
+              ${formatText(
+                subQuestion.question || ""
+              )}
+            </div>
+
+            ${optionsHtml}
+
+            <button
+              class="view"
+              onclick="toggleAnswer('${subAnswerId}', this)"
+            >
+              👁 View Answer
+            </button>
+
+            <div
+              class="answer"
+              id="${subAnswerId}"
+            >
+              ${
+                subQuestion.correctOption
+                  ? `
+                    <b>Correct Option:</b>
+                    ${subQuestion.correctOption}
+                    <br><br>
+                  `
+                  : ""
+              }
+
+              <b>Answer:</b>
+              <br>
+
+              ${formatText(
+                subQuestion.answer || ""
+              )}
+            </div>
           </div>
-        `
-        : "";
-
-      return `
-        <div class="sub-question">
-          <div class="question">
-            <b>${subQuestion.no || `(${index + 1})`}</b>
-            ${subQuestion.question || ""}
-          </div>
-
-          ${optionsHtml}
-
-          <button
-            class="view"
-            onclick="toggleAnswer('${subAnswerId}', this)"
-          >
-            👁 View Answer
-          </button>
-
-          <div class="answer" id="${subAnswerId}">
-            ${
-              subQuestion.correctOption
-                ? `<b>Correct Option:</b> ${subQuestion.correctOption}<br><br>`
-                : ""
-            }
-
-            <b>Answer:</b><br>
-            ${formatText(subQuestion.answer || "")}
-          </div>
-        </div>
-      `;
-    })
-    .join("");
+        `;
+      })
+      .join("");
 
   card.innerHTML = `
     <div class="meta">
-      ${question.type}
+      ${question.type || "Extract Based"}
       • ${question.marks || 5} Marks
-      • Source: ${question.source || "PYQ"}
+      • Source: ${question.source || "CBSE PYQ"}
     </div>
 
     <div class="extract-box">
-      <b>Read the extract:</b><br><br>
+      <b>Read the extract:</b>
+      <br><br>
+
       ${formatText(question.extract || "")}
     </div>
 
@@ -841,13 +931,16 @@ function renderExtractQuestion(question, answerId) {
 ========================================================= */
 
 function toggleAnswer(answerId, button) {
-  const answerElement = document.getElementById(answerId);
+  const answerElement =
+    document.getElementById(answerId);
 
   if (!answerElement) return;
 
   answerElement.classList.toggle("show");
 
-  if (answerElement.classList.contains("show")) {
+  if (
+    answerElement.classList.contains("show")
+  ) {
     button.textContent = "🙈 Hide Answer";
   } else {
     button.textContent = "👁 View Answer";
@@ -857,11 +950,15 @@ function toggleAnswer(answerId, button) {
 window.toggleAnswer = toggleAnswer;
 
 /* =========================================================
-   FORMAT ANSWER TEXT
+   FORMAT TEXT
 ========================================================= */
 
 function formatText(text) {
-  return String(text).replace(/\n/g, "<br>");
+  return String(text)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/\n/g, "<br>");
 }
 
 /* =========================================================
@@ -882,29 +979,39 @@ renderPage("home", true);
    PARTICLE BACKGROUND
 ========================================================= */
 
-const particlesCanvas = document.getElementById("particles");
+const particlesCanvas =
+  document.getElementById("particles");
 
 if (particlesCanvas) {
-  const particleContext = particlesCanvas.getContext("2d");
+  const particleContext =
+    particlesCanvas.getContext("2d");
 
   const particles = [];
 
   function resizeParticlesCanvas() {
-    particlesCanvas.width = window.innerWidth;
-    particlesCanvas.height = window.innerHeight;
+    particlesCanvas.width =
+      window.innerWidth;
+
+    particlesCanvas.height =
+      window.innerHeight;
   }
 
   resizeParticlesCanvas();
 
-  window.addEventListener("resize", resizeParticlesCanvas);
+  window.addEventListener(
+    "resize",
+    resizeParticlesCanvas
+  );
 
   for (let index = 0; index < 90; index++) {
     particles.push({
       x: Math.random() * window.innerWidth,
       y: Math.random() * window.innerHeight,
       radius: Math.random() * 2 + 1,
-      speedX: (Math.random() - 0.5) * 0.6,
-      speedY: (Math.random() - 0.5) * 0.6
+      speedX:
+        (Math.random() - 0.5) * 0.6,
+      speedY:
+        (Math.random() - 0.5) * 0.6
     });
   }
 
@@ -950,7 +1057,9 @@ if (particlesCanvas) {
       particleContext.fill();
     });
 
-    requestAnimationFrame(animateParticles);
+    requestAnimationFrame(
+      animateParticles
+    );
   }
 
   animateParticles();
