@@ -256,7 +256,7 @@ const pages = {
       {
         title: "Poem 8 - Fog",
         desc: "Coming Soon",
-        soon: true
+        action: "menu:fog"
       },
       {
         title: "Poem 9 - The Tale of Custard the Dragon",
