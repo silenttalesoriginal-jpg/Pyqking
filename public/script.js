@@ -42,7 +42,7 @@ const chapterData = {
   glimpsesOfIndia: {
     title: "Glimpses of India",
     base: "glimpses-of-india",
-    oral: false,
+    oral: true,
     exercise: false,
     isPoem: false
   },
