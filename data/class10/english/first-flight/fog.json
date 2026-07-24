@@ -1,0 +1,55 @@
+[
+  {
+    "year": "General",
+    "marks": 6,
+    "type": "Long Answer",
+    "question": "Examine the role of Nature in the poems 'Dust of Snow' and 'Fog'.",
+    "answer": "In both 'Dust of Snow' by Robert Frost and 'Fog' by Carl Sandburg, Nature acts as a transformative force that subtly influences human emotions and perspectives. In 'Dust of Snow', a crow shaking snow from a hemlock tree changes the speaker's mood from despair to hope. In 'Fog', Sandburg personifies fog as a cat that silently covers the city, creating a calm and thoughtful atmosphere. Both poems show Nature as a quiet yet powerful force that can influence human feelings through simple everyday events.",
+    "source": "Previous Year Questions"
+  },
+  {
+    "year": "General",
+    "marks": 3,
+    "type": "Short Answer",
+    "question": "'The Fog comes on little cat feet.' Highlight the significance of the metaphor employed in the poem 'Fog' by Carl Sandburg.",
+    "answer": "The metaphor compares the fog to a cat, highlighting its silent, graceful and mysterious movement. Like a cat, the fog arrives quietly, stays for a while and then disappears. The comparison emphasizes the gentle, elusive and temporary nature of fog.",
+    "source": "Previous Year Questions"
+  },
+  {
+    "year": "General",
+    "marks": 3,
+    "type": "Short Answer",
+    "question": "Write the paragraph given in the poem 'Fog'.",
+    "answer": "The fog comes on little cat feet.\nIt sits looking over harbour and city on silent haunches and then moves on.",
+    "source": "Previous Year Questions"
+  },
+  {
+    "year": "2019",
+    "marks": 5,
+    "type": "Extract Based",
+    "source": "CBSE PYQ",
+    "extract": "It sits looking\nover harbour and city\non silent haunches\nand then moves on.",
+    "subQuestions": [
+      {
+        "no": "(a)",
+        "question": "What does 'It' refer to here?",
+        "answer": "The fog."
+      },
+      {
+        "no": "(b)",
+        "question": "Where does 'It' settle over?",
+        "answer": "The harbour and city."
+      },
+      {
+        "no": "(c)",
+        "question": "What does 'It' do sitting on its haunches?",
+        "answer": "It looks over the harbour and city."
+      },
+      {
+        "no": "(d)",
+        "question": "Name the figure of speech used in these lines.",
+        "answer": "Personification."
+      }
+    ]
+  }
+]

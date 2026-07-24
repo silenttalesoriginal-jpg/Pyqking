@@ -46,12 +46,20 @@ const chapterData = {
     exercise: true,
     isPoem: false
   },
-
+       
   theBallPoem: {
     title: "The Ball Poem",
     base: "the-ball-poem",
     oral: false,
     exercise: true,
+    isPoem: true
+  },
+      
+  fog: {
+    title: "Fog",
+    base: "fog",
+    oral: false,
+    exercise: false,
     isPoem: true
   }
 };
