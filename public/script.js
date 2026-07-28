@@ -46,7 +46,7 @@ const chapterData = {
     exercise: true,
     isPoem: false
   },
-       
+
   theBallPoem: {
     title: "The Ball Poem",
     base: "the-ball-poem",
@@ -54,13 +54,31 @@ const chapterData = {
     exercise: true,
     isPoem: true
   },
-      
+
   fog: {
     title: "Fog",
     base: "fog",
     oral: false,
     exercise: false,
     isPoem: true
+  },
+
+  midnightVisitor: {
+    title: "The Midnight Visitor",
+    base: "the-midnight-visitor",
+    oral: false,
+    exercise: false,
+    isPoem: false,
+    book: "footprints"
+  },
+
+  aQuestionOfTrust: {
+    title: "A Question of Trust",
+    base: "a-question-of-trust",
+    oral: false,
+    exercise: false,
+    isPoem: false,
+    book: "footprints"
   }
 };
 
@@ -142,13 +160,63 @@ const pages = {
       },
       {
         title: "📙 Footprints Without Feet",
+        desc: "Supplementary Reader",
+        action: "footprints"
+      }
+    ]
+  },
+
+  footprints: {
+    subtitle: "Footprints Without Feet",
+    cards: [
+      {
+        title: "Ch-1 A Triumph of Surgery",
+        desc: "Coming Soon",
+        soon: true
+      },
+      {
+        title: "Ch-2 The Thief's Story",
+        desc: "Coming Soon",
+        soon: true
+      },
+      {
+        title: "Ch-3 The Midnight Visitor",
+        desc: "Coming Soon",
+        soon: true
+      },
+      {
+        title: "Ch-4 A Question of Trust",
+        desc: "Previous Year Questions",
+        action: "menu:aQuestionOfTrust"
+      },
+      {
+        title: "Ch-5 Footprints Without Feet",
+        desc: "Coming Soon",
+        soon: true
+      },
+      {
+        title: "Ch-6 The Making of a Scientist",
+        desc: "Coming Soon",
+        soon: true
+      },
+      {
+        title: "Ch-7 The Necklace",
+        desc: "Coming Soon",
+        soon: true
+      },
+      {
+        title: "Ch-8 Bholi",
+        desc: "Coming Soon",
+        soon: true
+      },
+      {
+        title: "Ch-9 The Book That Saved the Earth",
         desc: "Coming Soon",
         soon: true
       }
     ]
   },
-
-  firstFlight: {
+    firstFlight: {
     subtitle: "First Flight",
     cards: [
       {
@@ -255,7 +323,7 @@ const pages = {
       },
       {
         title: "Poem 8 - Fog",
-        desc: "Coming Soon",
+        desc: "Previous Year Questions",
         action: "menu:fog"
       },
       {
@@ -347,8 +415,7 @@ function renderChapterMenu(chapterKey, push = true) {
       action: `pyq:${chapterKey}`
     }
   ];
-
-  if (!chapter.isPoem && chapter.oral) {
+    if (!chapter.isPoem && chapter.oral) {
     menuCards.push({
       title: "🎤 Oral Comprehension",
       desc: "NCERT Oral Questions",
@@ -559,8 +626,7 @@ async function openChapterData(
     currentTitlePrefix =
       "📝 Exercise Questions";
   }
-
-  pageSubtitle.textContent = title;
+    pageSubtitle.textContent = title;
   searchInput.placeholder = placeholder;
 
   questionsArea.innerHTML = `
@@ -570,8 +636,15 @@ async function openChapterData(
   `;
 
   try {
+
+    // Select correct folder
+    const bookFolder =
+      chapter.book === "footprints"
+        ? "footprints"
+        : "first-flight";
+
     const response = await fetch(
-      `/data/class10/english/first-flight/${fileName}`
+      `/data/class10/english/${bookFolder}/${fileName}`
     );
 
     if (!response.ok) {
@@ -615,7 +688,9 @@ async function openChapterData(
     }
 
     renderQuestions(currentTitlePrefix);
+
   } catch (error) {
+
     console.error(error);
 
     questionsArea.innerHTML = `
@@ -641,6 +716,7 @@ async function openChapterData(
 function renderQuestions(
   titlePrefix = currentTitlePrefix
 ) {
+
   const searchText =
     searchInput.value
       .trim()
@@ -648,14 +724,17 @@ function renderQuestions(
 
   const filteredQuestions =
     currentQuestions.filter((question) => {
+
       return JSON.stringify(question)
         .toLowerCase()
         .includes(searchText);
+
     });
 
   const groupedQuestions = {};
 
   filteredQuestions.forEach((question) => {
+
     const groupName =
       question.year || "Questions";
 
@@ -664,6 +743,7 @@ function renderQuestions(
     }
 
     groupedQuestions[groupName].push(question);
+
   });
 
   questionsArea.innerHTML = "";
@@ -671,6 +751,7 @@ function renderQuestions(
   const groups =
     Object.keys(groupedQuestions).sort(
       (a, b) => {
+
         const numberA = Number(a);
         const numberB = Number(b);
 
@@ -689,10 +770,11 @@ function renderQuestions(
             sensitivity: "base"
           }
         );
+
       }
     );
+      groups.forEach((groupName) => {
 
-  groups.forEach((groupName) => {
     const yearHeading =
       document.createElement("h2");
 
@@ -705,6 +787,7 @@ function renderQuestions(
 
     groupedQuestions[groupName].forEach(
       (question, questionIndex) => {
+
         const cleanGroupName =
           String(groupName)
             .replace(/\s+/g, "-")
@@ -717,26 +800,34 @@ function renderQuestions(
           question.type === "Extract Based" &&
           Array.isArray(question.subQuestions)
         ) {
+
           renderExtractQuestion(
             question,
             answerId
           );
+
         } else {
+
           renderNormalQuestion(
             question,
             answerId
           );
+
         }
+
       }
     );
+
   });
 
   if (filteredQuestions.length === 0) {
+
     questionsArea.innerHTML = `
       <p style="text-align:center;">
         No questions found.
       </p>
     `;
+
   }
 }
 
@@ -748,6 +839,7 @@ function renderNormalQuestion(
   question,
   answerId
 ) {
+
   const card =
     document.createElement("div");
 
@@ -826,14 +918,15 @@ function renderExtractQuestion(
   question,
   answerId
 ) {
+
   const card =
     document.createElement("div");
 
   card.className = "question-card";
-
-  const subQuestionsHtml =
+    const subQuestionsHtml =
     question.subQuestions
       .map((subQuestion, index) => {
+
         const subAnswerId =
           `${answerId}-${index}`;
 
@@ -866,6 +959,7 @@ function renderExtractQuestion(
 
         return `
           <div class="sub-question">
+
             <div class="question">
               <b>
                 ${
@@ -877,6 +971,7 @@ function renderExtractQuestion(
               ${formatText(
                 subQuestion.question || ""
               )}
+
             </div>
 
             ${optionsHtml}
@@ -892,6 +987,7 @@ function renderExtractQuestion(
               class="answer"
               id="${subAnswerId}"
             >
+
               ${
                 subQuestion.correctOption
                   ? `
@@ -908,27 +1004,36 @@ function renderExtractQuestion(
               ${formatText(
                 subQuestion.answer || ""
               )}
+
             </div>
+
           </div>
         `;
+
       })
       .join("");
 
   card.innerHTML = `
+
     <div class="meta">
+
       ${question.type || "Extract Based"}
       • ${question.marks || 5} Marks
       • Source: ${question.source || "CBSE PYQ"}
+
     </div>
 
     <div class="extract-box">
+
       <b>Read the extract:</b>
       <br><br>
 
       ${formatText(question.extract || "")}
+
     </div>
 
     ${subQuestionsHtml}
+
   `;
 
   questionsArea.appendChild(card);
@@ -939,6 +1044,7 @@ function renderExtractQuestion(
 ========================================================= */
 
 function toggleAnswer(answerId, button) {
+
   const answerElement =
     document.getElementById(answerId);
 
@@ -949,10 +1055,15 @@ function toggleAnswer(answerId, button) {
   if (
     answerElement.classList.contains("show")
   ) {
+
     button.textContent = "🙈 Hide Answer";
+
   } else {
+
     button.textContent = "👁 View Answer";
+
   }
+
 }
 
 window.toggleAnswer = toggleAnswer;
@@ -962,13 +1073,14 @@ window.toggleAnswer = toggleAnswer;
 ========================================================= */
 
 function formatText(text) {
+
   return String(text)
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/\n/g, "<br>");
-}
 
+}
 /* =========================================================
    SEARCH
 ========================================================= */
@@ -991,17 +1103,20 @@ const particlesCanvas =
   document.getElementById("particles");
 
 if (particlesCanvas) {
+
   const particleContext =
     particlesCanvas.getContext("2d");
 
   const particles = [];
 
   function resizeParticlesCanvas() {
+
     particlesCanvas.width =
       window.innerWidth;
 
     particlesCanvas.height =
       window.innerHeight;
+
   }
 
   resizeParticlesCanvas();
@@ -1012,6 +1127,7 @@ if (particlesCanvas) {
   );
 
   for (let index = 0; index < 90; index++) {
+
     particles.push({
       x: Math.random() * window.innerWidth,
       y: Math.random() * window.innerHeight,
@@ -1021,9 +1137,11 @@ if (particlesCanvas) {
       speedY:
         (Math.random() - 0.5) * 0.6
     });
+
   }
 
   function animateParticles() {
+
     particleContext.clearRect(
       0,
       0,
@@ -1032,6 +1150,7 @@ if (particlesCanvas) {
     );
 
     particles.forEach((particle) => {
+
       particle.x += particle.speedX;
       particle.y += particle.speedY;
 
@@ -1063,12 +1182,15 @@ if (particlesCanvas) {
         "rgba(103, 232, 249, 0.8)";
 
       particleContext.fill();
+
     });
 
     requestAnimationFrame(
       animateParticles
     );
+
   }
 
   animateParticles();
+
 }
