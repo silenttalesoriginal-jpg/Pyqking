@@ -8,6 +8,12 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+  <!-- LIVE ONLINE USERS -->
+  <div id="onlineCounter">
+    👥 <span id="onlineCount">0</span>
+  </div>
+
   <canvas id="particles"></canvas>
   <div class="mouse-glow"></div>
 
@@ -29,6 +35,8 @@
     </section>
   </main>
 
+  <script src="/socket.io/socket.io.js"></script>
   <script src="script.js"></script>
+
 </body>
 </html>
