@@ -1192,5 +1192,18 @@ if (particlesCanvas) {
   }
 
   animateParticles();
-
+  
 }
+/* =========================================================
+   LIVE ONLINE USERS
+========================================================= */
+
+const socket = io();
+
+const onlineCount = document.getElementById("onlineCount");
+
+socket.on("onlineUsers", (count) => {
+  if (onlineCount) {
+    onlineCount.textContent = count;
+  }
+});
