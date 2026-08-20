@@ -79,6 +79,14 @@ const chapterData = {
     exercise: false,
     isPoem: false,
     book: "footprints"
+  },
+  makingScientist: {
+  title: "The Making of a Scientist",
+  base: "making-of-a-scientist",
+  oral: false,
+  exercise: false,
+  isPoem: false,
+  book: "footprints"
   }
 };
 
@@ -196,8 +204,8 @@ const pages = {
       },
       {
         title: "Ch-6 The Making of a Scientist",
-        desc: "Coming Soon",
-        soon: true
+        desc: "Previous Year Questions",
+        soon: "menu:makingScientist"
       },
       {
         title: "Ch-7 The Necklace",
