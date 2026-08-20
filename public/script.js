@@ -87,7 +87,7 @@ const chapterData = {
   exercise: false,
   isPoem: false,
   book: "footprints"
-  }
+  },
 };
 
 /* =========================================================
@@ -201,11 +201,11 @@ const pages = {
         title: "Ch-5 Footprints Without Feet",
         desc: "Coming Soon",
         soon: true
-      },
-      {
+      },  
+      {   
         title: "Ch-6 The Making of a Scientist",
         desc: "Previous Year Questions",
-        soon: "menu:makingScientist"
+        action: "menu:makingScientist"
       },
       {
         title: "Ch-7 The Necklace",
