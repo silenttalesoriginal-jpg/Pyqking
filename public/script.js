@@ -95,7 +95,7 @@ const chapterData = {
     exercise: false,
     isPoem: false,
     book: "footprints"
-  }
+  },
 };
 
 /* =========================================================
