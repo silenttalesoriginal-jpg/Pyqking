@@ -218,7 +218,7 @@ const pages = {
       {
         title: "Ch-7 The Necklace",
         desc: "Previous Year Questions",
-        soon: "menu:theNecklace"
+        action: "menu:theNecklace"
       },
       {
         title: "Ch-8 Bholi",
