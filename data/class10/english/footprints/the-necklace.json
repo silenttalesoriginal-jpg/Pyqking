@@ -27,8 +27,29 @@
     "year": "2026",
     "marks": "5",
     "type": "Extract Based",
-    "question": "Read the given extract and answer the questions: \"Mme Loisel was a great success. She was the prettlest of all - elegant, gracious, smiling, and full of joy. All the men noticed her, asked her name and wanted to be presented. She danced with enthusiasm, intoxicated with pleasure, thinking of nothing but all this admiration, this victory so complete and sweet to her heart.\" (i) How is \"success\" perceived by Matilda? [1 mark] (ii) Fill in the blank with the correct word from the bracket: 'All the men noticed her, asked her name and wanted to be presented' indicates that the men wanted to be formally _ (introduced/withholden) to her. [2 marks] (iii) Which of the following best describes Matilda's state of mind in the context? (A) overwhelmed (B) anxious (C) confused (D) sad [1 mark] (iv) Explain the phrase \"this victory so complete and sweet to her heart\". [1 mark]",
-    "answer": "(i) Matilda perceives success as fulfilling her desire to feel admired and envied. She believes success lies in becoming the centre of attention at social gatherings, satisfying her longing for social validation through beauty, elegance and the admiration of men. (ii) introduced. (iii) (A) overwhelmed. (iv) This phrase means that Matilda felt she had achieved everything she had ever longed for—to be admired, envied and the most beautiful woman in the room. The admiration and attention she received at the ball felt like a complete and deeply satisfying personal triumph, fulfilling her deepest desire for social recognition and validation.",
+    "extract": "Mme Loisel was a great success. She was the prettlest of all - elegant, gracious, smiling, and full of joy. All the men noticed her, asked her name and wanted to be presented. She danced with enthusiasm, intoxicated with pleasure, thinking of nothing but all this admiration, this victory so complete and sweet to her heart.",
+    "subQuestions": [
+      {
+        "no": "(i)",
+        "question": "How is \"success\" perceived by Matilda?",
+        "answer": "Matilda perceives success as fulfilling her desire to feel admired and envied. She believes success lies in becoming the centre of attention at social gatherings, satisfying her longing for social validation through beauty, elegance and the admiration of men."
+      },
+      {
+        "no": "(ii)",
+        "question": "Fill in the blank with the correct word from the bracket: 'All the men noticed her, asked her name and wanted to be presented' indicates that the men wanted to be formally _ (introduced/withholden) to her.",
+        "answer": "introduced"
+      },
+      {
+        "no": "(iii)",
+        "question": "Which of the following best describes Matilda's state of mind in the context? (A) overwhelmed (B) anxious (C) confused (D) sad",
+        "answer": "(A) overwhelmed"
+      },
+      {
+        "no": "(iv)",
+        "question": "Explain the phrase \"this victory so complete and sweet to her heart\".",
+        "answer": "This phrase means that Matilda felt she had achieved everything she had ever longed for—to be admired, envied and the most beautiful woman in the room. The admiration and attention she received at the ball felt like a complete and deeply satisfying personal triumph, fulfilling her deepest desire for social recognition and validation."
+      }
+    ],
     "source": "CBSE PYQ 2026"
   },
   {
@@ -111,12 +132,33 @@
     "answer": "Matilda is unhappy with her life because she feels she was born for luxury and elegance but is married to a modest clerk. She constantly envies the wealthy, resents her simple home and possessions, and believes she deserves a glamorous lifestyle, which makes her discontented and miserable.",
     "source": "CBSE PYQ 2025"
   },
-  {
+   {
     "year": "2025",
     "marks": "5",
     "type": "Extract Based",
-    "question": "Read the given extract and answer the questions that follow: \"He was silent, stupefied, in dismay, at the sight of his wife weeping. He stammered, 'What is the matter? What is the matter?' By a violent effort, she had controlled her vexation and responded in a calm voice, wiping her moist cheeks, 'Nothing. Only I have no dress and consequently I cannot go to this affair. Give your card to some colleague whose wife is better fitted out than I. He was grieved, but answered, 'Let us see, Matilda. How much would a suitable costume cost, something that would serve for other occasions, something very simple?' She reflected for some seconds thinking of a sum that she could ask for without bringing with it an immediate refusal and a frightened exclamation from the economical clerk.' (The Necklace) (I) What can we infer about Matilda's emotions and financial situation based on her husband's reaction and her response to not having a dress for the affair? [2 marks] (II) Which of the following is NOT a reason for Matilda's distress in the extract? (a) She has no suitable dress for the affair. (b) She is upset about her husband's reaction. (c) She is worried about the cost of a suitable costume. (d) The card did not bear her name. [1 mark] (III) What did Matilda suggest that her husband do with the card? [1 mark] (IV) In the given extract, what does the term 'economical clerk' imply? [1 mark]",
-    "answer": "(I) Matilda feels embarrassed and miserable because she cannot afford a suitable dress to attend the party. Her husband's concern and helplessness reveal their modest financial condition. The couple's limited means contrast sharply with Matilda's desire for luxury, causing her frustration and disappointment. (II) (d) The card did not bear her name. (III) Matilda suggested that her husband give the invitation card to a colleague whose wife was better fitted out than she was. (IV) The term 'economical clerk' implies that her husband was a low-paid government employee who managed expenses carefully and could not afford extravagance.",
+    "extract": "He was silent, stupefied, in dismay, at the sight of his wife weeping. He stammered, 'What is the matter? What is the matter?' By a violent effort, she had controlled her vexation and responded in a calm voice, wiping her moist cheeks, 'Nothing. Only I have no dress and consequently I cannot go to this affair. Give your card to some colleague whose wife is better fitted out than I. He was grieved, but answered, 'Let us see, Matilda. How much would a suitable costume cost, something that would serve for other occasions, something very simple?' She reflected for some seconds thinking of a sum that she could ask for without bringing with it an immediate refusal and a frightened exclamation from the economical clerk.",
+    "subQuestions": [
+      {
+        "no": "(I)",
+        "question": "What can we infer about Matilda's emotions and financial situation based on her husband's reaction and her response to not having a dress for the affair?",
+        "answer": "Matilda feels embarrassed and miserable because she cannot afford a suitable dress to attend the party. Her husband's concern and helplessness reveal their modest financial condition. The couple's limited means contrast sharply with Matilda's desire for luxury, causing her frustration and disappointment."
+      },
+      {
+        "no": "(II)",
+        "question": "Which of the following is NOT a reason for Matilda's distress in the extract? (a) She has no suitable dress for the affair. (b) She is upset about her husband's reaction. (c) She is worried about the cost of a suitable costume. (d) The card did not bear her name.",
+        "answer": "(d) The card did not bear her name."
+      },
+      {
+        "no": "(III)",
+        "question": "What did Matilda suggest that her husband do with the card?",
+        "answer": "Matilda suggested that her husband give the invitation card to a colleague whose wife was better fitted out than she was."
+      },
+      {
+        "no": "(IV)",
+        "question": "In the given extract, what does the term 'economical clerk' imply?",
+        "answer": "The term 'economical clerk' implies that her husband was a low-paid government employee who managed expenses carefully and could not afford extravagance."
+      }
+    ],
     "source": "CBSE PYQ 2025"
   },
   {
@@ -243,8 +285,24 @@
     "year": "2016",
     "marks": "3",
     "type": "Extract Based",
-    "question": "Read the extract given below and answer the questions that follow: \"I returned another to you exactly like it. And it has taken us ten years to pay for it. You can understand that it was not easy for us who have nothing.\" (a) Who is I? (b) Why did it take them ten years to pay for 'It'? (c) Write the antonym of 'nothing'.",
-    "answer": "(a) 'I' refers to Matilda Loisel. (b) It took them ten years to pay for 'it' because they had to borrow a significant amount of money to replace the lost necklace, and it took them a long time to repay the debt. (c) Everything.",
+    "extract": "I returned another to you exactly like it. And it has taken us ten years to pay for it. You can understand that it was not easy for us who have nothing.",
+    "subQuestions": [
+      {
+        "no": "(a)",
+        "question": "Who is I?",
+        "answer": "'I' refers to Matilda Loisel."
+      },
+      {
+        "no": "(b)",
+        "question": "Why did it take them ten years to pay for 'It'?",
+        "answer": "It took them ten years to pay for 'it' because they had to borrow a significant amount of money to replace the lost necklace, and it took them a long time to repay the debt."
+      },
+      {
+        "no": "(c)",
+        "question": "Write the antonym of 'nothing'.",
+        "answer": "Everything."
+      }
+    ],
     "source": "CBSE Foreign 2016"
   },
   {
@@ -311,12 +369,28 @@
     "answer": "The Loisels replaced the necklace by borrowing a significant amount of money and purchasing a new necklace that was identical to the lost one. They worked hard for ten years to pay off the debt incurred by the purchase of the new necklace.",
     "source": "CBSE Foreign 2015"
   },
-  {
+ {
     "year": "2015",
     "marks": "3",
     "type": "Extract Based",
-    "question": "The day of the ball approached and Mme. Loisel seemed sad, disturbed, anxious. Nevertheless, her dress was nearly ready. (a) Why was Mme. Loisel sad and disturbed? (b) Why did she get a dress ready? (c) What is a ball?",
-    "answer": "(a) Mme. Loisel was sad and disturbed because she did not possess any suitable jewellery to match her dress or the occasion of the ball. (b) She got a dress ready because she and her husband were invited to a ball organized by M. Loisel's boss, the Minister of Education. (c) A ball is a formal social gathering where people come together to dance and socialize.",
+    "extract": "The day of the ball approached and Mme. Loisel seemed sad, disturbed, anxious. Nevertheless, her dress was nearly ready.",
+    "subQuestions": [
+      {
+        "no": "(a)",
+        "question": "Why was Mme. Loisel sad and disturbed?",
+        "answer": "Mme. Loisel was sad and disturbed because she did not possess any suitable jewellery to match her dress or the occasion of the ball."
+      },
+      {
+        "no": "(b)",
+        "question": "Why did she get a dress ready?",
+        "answer": "She got a dress ready because she and her husband were invited to a ball organized by M. Loisel's boss, the Minister of Education."
+      },
+      {
+        "no": "(c)",
+        "question": "What is a ball?",
+        "answer": "A ball is a formal social gathering where people come together to dance and socialize."
+      }
+    ],
     "source": "CBSE Delhi 2015"
   },
   {
