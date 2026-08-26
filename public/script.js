@@ -81,13 +81,21 @@ const chapterData = {
     book: "footprints"
   },
   makingScientist: {
-  title: "The Making of a Scientist",
-  base: "making-of-a-scientist",
-  oral: false,
-  exercise: false,
-  isPoem: false,
-  book: "footprints"
+    title: "The Making of a Scientist",
+    base: "making-of-a-scientist",
+    oral: false,
+    exercise: false,
+    isPoem: false,
+    book: "footprints"
   },
+  theNecklace: {
+    title: "The Necklace",
+    base: "the-necklace",
+    oral: false,
+    exercise: false,
+    isPoem: false,
+    book: "footprints"
+  }
 };
 
 /* =========================================================
@@ -209,8 +217,8 @@ const pages = {
       },
       {
         title: "Ch-7 The Necklace",
-        desc: "Coming Soon",
-        soon: true
+        desc: "Previous Year Questions",
+        soon: "menu:theNecklace"
       },
       {
         title: "Ch-8 Bholi",
